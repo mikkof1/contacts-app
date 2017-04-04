@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<ArrayOfContact xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Contact>
+    <id>1</id>
+    <firstName>Aku</firstName>
+    <lastName>Ankka</lastName>
+    <phone>456-789789</phone>
+    <address>Paratiisitie 13</address>
+    <city>Ankkalinna</city>
+  </Contact>
+  <Contact>
+    <id>2</id>
+    <firstName>Teppo</firstName>
+    <lastName>Tulppu</lastName>
+    <phone>456-123123</phone>
+    <address>Paratiisitie 14</address>
+    <city>Ankkalinna</city>
+  </Contact>
+  <Contact>
+    <id>3</id>
+    <firstName>Bruce</firstName>
+    <lastName>Wayne</lastName>
+    <phone>555-666 123</phone>
+    <address>Wayne Manor</address>
+    <city>Gotham City</city>
+  </Contact>
+  <Contact>
+    <id>11</id>
+    <firstName>555</firstName>
+    <lastName>444</lastName>
+    <phone>3333</phone>
+    <address>22222</address>
+    <city>11111</city>
+  </Contact>
+</ArrayOfContact>
