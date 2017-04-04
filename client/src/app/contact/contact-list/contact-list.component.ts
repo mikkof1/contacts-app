@@ -9,19 +9,19 @@ import {Contact} from "../contact";
 export class ContactListComponent implements OnInit {
 
   @Input() contacts: Contact[];
-  @Output() select: EventEmitter<Contact>;
+ // @Output() select: EventEmitter<Contact>;
 
   constructor() {
-    this.select = new EventEmitter();
+  //  this.select = new EventEmitter();
   }
 
   ngOnInit() {
 
   }
 
-  contactSelected(contact: Contact) {
-    this.select.emit(contact);
+ // contactSelected(contact: Contact) {
+ //   this.select.emit(contact);
 
-  }
+//  }
 
 }
