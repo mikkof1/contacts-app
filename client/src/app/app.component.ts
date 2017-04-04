@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Contact} from "./contact/contact";
+import {ContactService} from "./contact/services/contact.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Contact list';
+
+  contactsList: Contact[];
+
+  constructor(contactServices: ContactService) {
+    this.contactsList = contactServices.findContacts();
+  }
+
 }

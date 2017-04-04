@@ -6,7 +6,7 @@ export class Contact {
   private _address: string;
   private _city: string;
 
-  constructor(id: number, firstName: string, lastName: string, phone: string, address: string, city: string) {
+  constructor(id?: number, firstName?: string, lastName?: string, phone?: string, address?: string, city?: string) {
     this._id = id;
     this._firstName = firstName;
     this._lastName = lastName;
