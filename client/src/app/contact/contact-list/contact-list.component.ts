@@ -21,6 +21,7 @@ export class ContactListComponent implements OnInit {
 
   contactSelected(contact: Contact) {
     this.select.emit(contact);
+
   }
 
 }
