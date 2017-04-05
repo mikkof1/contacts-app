@@ -1,12 +1,19 @@
 #card{
-  border: 1px solid black;
+
   width: 300px;
-  margin: 20px;
+  margin-bottom: 20px;
+  background-color: mintcream;
 }
 
-md-card-header{
-  font-size: 20px !important;
-  background-color: aquamarine;
+
+.contact-item-header{
+ padding:10px 0 0 10px;
+  border-radius: 3px 3px 0 0;
+
+  background-color: lightskyblue;
+}
+.contact-item-header md-icon{
+  font-size: 36px;
 }
 
 #room{

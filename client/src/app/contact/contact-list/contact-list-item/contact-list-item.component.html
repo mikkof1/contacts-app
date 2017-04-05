@@ -1,6 +1,8 @@
+<div class="contact-item-card">
+<div class="contact-item-header"><md-icon>face</md-icon></div>
 <md-card id="card" class="mat-card">
 
-
+<md-card-header></md-card-header>
 
   <md-card-content>
     <md-card-title >{{contact.firstName+' '+contact.lastName}}</md-card-title>
@@ -11,16 +13,16 @@
 
   <md-card-actions>
     <button md-icon-button (click)="onDelete">
-      <md-icon class="md-18">delete</md-icon>
+      <md-icon >delete</md-icon>
     </button>
     <button md-icon-button (click)="onEdit">
-      <md-icon class="md-18">edit</md-icon>
+      <md-icon >edit</md-icon>
     </button>
 
-    <button id="room" md-icon-button (click)="onRoom">
+    <button id="room" md-icon-button (click)="onMap">
       <md-icon class="md-18">room</md-icon>
     </button>
 
   </md-card-actions>
 </md-card>
-
+</div>
