@@ -4,6 +4,11 @@
   margin: 20px;
 }
 
+md-card-header{
+  font-size: 20px !important;
+  background-color: aquamarine;
+}
+
 #room{
   right: 10px;
   position: absolute;

@@ -1,30 +1,26 @@
-
-  <md-card id="card" class="mat-card">
-
-    <md-card-header>
-      <div>
-        <md-card-title class="">{{contact.firstName+' '+contact.lastName}}</md-card-title>
-      </div>
-    </md-card-header>
-
-    <md-card-content>
-      <p> Phone: {{contact.phone}}</p>
-      <p>Adress: {{contact.address}}</p>
-      <p>City: {{contact.city}}</p>
-    </md-card-content>
-
-    <md-card-actions>
-      <button md-icon-button (click)="onDelete">
-        <md-icon class="md-18">delete</md-icon>
-      </button>
-      <button md-icon-button (click)="onEdit">
-        <md-icon class="md-18">edit</md-icon>
-      </button>
-      <button md-icon-button (click)="onRoom">
-        <md-icon class="md-18">room</md-icon>
-      </button>
-    </md-card-actions>
-  </md-card>
+<md-card id="card" class="mat-card">
 
 
+
+  <md-card-content>
+    <md-card-title >{{contact.firstName+' '+contact.lastName}}</md-card-title>
+    <p> Phone: {{contact.phone}}</p>
+    <p>Adress: {{contact.address}}</p>
+    <p>City: {{contact.city}}</p>
+  </md-card-content>
+
+  <md-card-actions>
+    <button md-icon-button (click)="onDelete">
+      <md-icon class="md-18">delete</md-icon>
+    </button>
+    <button md-icon-button (click)="onEdit">
+      <md-icon class="md-18">edit</md-icon>
+    </button>
+
+    <button id="room" md-icon-button (click)="onRoom">
+      <md-icon class="md-18">room</md-icon>
+    </button>
+
+  </md-card-actions>
+</md-card>
 

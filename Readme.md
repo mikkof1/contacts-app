@@ -1,51 +1,55 @@
-# contacts-app part-2
-Jatkoa harkalle [contacts-app](https://github.com/ekoodi/ekoodi.github.io/blob/master/web-technologies/tasks/contacts-app.md).
+﻿# contacts-app
+Contacts-sovelluksen toteutus Angular 4:llä. Alla on kuvaukset käyttöliittymästä ja tarvittavista luokista. UI:ta saa tuunata nätimmäksikin :)
 
-Front-end (client)
-* HTML, CSS, JavaScript
-* jQuery
+<img src="https://raw.githubusercontent.com/ekoodi/ekoodi.github.io/master/web-technologies/images/ng-contacts-app.png">
+<br></br>
+<img src="https://raw.githubusercontent.com/ekoodi/ekoodi.github.io/master/web-technologies/images/ng-contacts-app-ui.png">
 
-Back-end (server)
-* C#
-* REST API (C# Web API)
 
-## Things to do
+#### app.component
+* Pyytää contacteja ContacServiceltä ja välittää ne ContactListComponentille
+* Template sisältää ContactListin ja napin, jolla lisätään uusi contact (kutsuen ContactServiceä)
+* Tarkkailee ContactListComponentilta tulevia eventtejä ja reagoi niihin
+    * Muokkaa contact
+    * Poista contact
+    * Näytä contact kartalla
 
-1. Tutustu yleisesti REST-rajapintoihin (esim. [REST API Tutorial](http://www.restapitutorial.com/)) ja kiinnitä huomiota erityisesti seuraaviin asioihin:
-* HTTP metodien käyttö
-* Palveluiden nimeäminen
+#### contact-list.component
+* @Input() contacts: Contact[];
+* @Output() editContact: EventEmitter<Contact>;
+* @Output() removeContact: EventEmitter<Contact>;
+* @Output() showContactOnMap: EventEmitter<Contact>;
 
-2. Tutustu [jQueryyn](http://jquery.com/)
+#### contact-list-item.component
+* @Input() contact: Contact;
+* @Input() edit: EventEmitter<Contact>;
+* @Input() remove: EventEmitter<Contact>;
+* @Input() showOnMap: EventEmitter<Contact>;
 
-3. Muuta git-repositoryn hakemistorakennetta siten, että juuresta löytyy oma hakemistonsa sekä client-projektille että server-projektille. Clientin alle tulee nykyinen contacts-app toteutus ja serverin alle Web API.
+#### contact.service
+* Tarjoaa työkalut contactien varastoimiseen local storageen.
 
-4. Tee palvelu, joka REST-rajapinnan kautta
-* Palauttaa kaikki yhteystiedot
-* Tallentaa uuden yhteystiedon
-* Päivittää yhteystiedon
-* Poistaa yhteystiedon
+#### contact
+* Luokka, josta muodostetaan contact-objecteja
+    * id
+    * firstName
+    * lastName
+    * phone
+    * streetAddress
+    * city
 
-Mallia Web API:n pystytykseen löytyy [täältä](https://github.com/santtone/web-api-sample).
-
-Yhteystiedot voi olla jemmassa joko server-sovelluksen muistissa tai levylle kirjoitettavassa tekstitiedostossa.
-
-5. Testaa, että tekemäsi palvelu toimii käyttäen jotakin HTTP-clientia. Chromeen asennettava [Postman](https://www.getpostman.com/) on hyvä ja kokeilemisen arvoinen. IntelliJ IDEA:n [omallakin](https://www.jetbrains.com/help/idea/2016.3/rest-client-tool-window.html) pärjää.
-
-6. Lataa jQuery ja ota se käyttöön tekemässäsi contacts-app client-sovelluksessa.
-
-7. Tee clientilta HTTP-kutsuja (jQuery auttaa tässä) tekemääsi palveluun:
-* Hae käyttöliittymässä näytettävät yhteystiedot
-* Lisää uusi yhteystieto
-* Muokkaa/Poista yhteystieto
 
 ## Links
-[REST API Tutorial](http://www.restapitutorial.com/)
+#### Dependencies
+[Angular Material](https://material.angular.io/guide/getting-started)
 
-[Build REST API](https://docs.microsoft.com/en-us/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
+[Flex-Layout](https://github.com/angular/flex-layout/wiki/Integration-with-Angular-CLI)
 
-[Example of creating Web API using C# and Visual Studio (santtone)](https://github.com/santtone/web-api-sample)
+[Icons](https://www.flowdock.com/app/saimia/angular/threads/-iPsHaxZlakrRntO5ExYui-20Nz)
 
-[jQuery API](http://api.jquery.com/)
-* [jQuery - Ajax](http://api.jquery.com/jQuery.ajax/#options)
-* [jQuery - POST](http://api.jquery.com/jQuery.post/)
-* [jQuery - GET](http://api.jquery.com/jQuery.get/)
+#### Flowdock
+[angular-links flow](https://www.flowdock.com/app/saimia/angular/threads/MovuzqH73uqEZWWb_Do3g6phtpE)
+
+[contacts-app flow](https://www.flowdock.com/app/saimia/angular/threads/0ArCwZmbIlxDVyzcCqeFD5aJChT)
+(Täällä juttua harkkaan liittyen. Mm. ohjetta Angular Material Dialog-komponentin käytöstä)
+
