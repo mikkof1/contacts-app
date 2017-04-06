@@ -10,6 +10,12 @@ export class ContactDialogComponent implements OnInit {
 
   @Input() contactIn: Contact;
   @Output() contactOut: Contact;
+  title: string='New Contact';
+  firstName:string='Matti';
+  lastName:string='Virtanen';
+  phone:string='555-01234';
+  address:string="Katajakatu 5 as 7";
+  city:string='Tuppukylä';
 
   constructor() { }
 

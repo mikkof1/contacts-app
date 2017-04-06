@@ -1,13 +1,31 @@
 <div class="contact-Dialog-Body">
-<h2 md-dialog-title>Otsikko h2</h2>
+  <div class="contact-title">{{title}}</div>
 
-<div md-dialog-content>
-  Name:<br>
-  Hellou:
+  <div md-dialog-content class="dialog-inputs">
+    <md-input-container floatPlaceholder="auto">
+      <input mdInput [(ngModel)]="firstName" type="text" required
+             placeholder="Firstname">
+    </md-input-container>
+    <md-input-container floatPlaceholder="auto">
+      <input mdInput [(ngModel)]="lastName" type="text" required
+             placeholder="Lastname">
+    </md-input-container>
+    <md-input-container floatPlaceholder="auto">
+      <input mdInput [(ngModel)]="phone" type="text" required
+             placeholder="Phone">
+    </md-input-container>
+    <md-input-container floatPlaceholder="auto">
+      <input mdInput [(ngModel)]="address" type="text" required
+             placeholder="Street Address">
+    </md-input-container>
+    <md-input-container floatPlaceholder="auto">
+      <input mdInput [(ngModel)]="city" type="text" required
+             placeholder="City">
+    </md-input-container>
 
-</div>
-<div md-dialog-actions>
-  <button (click)="onClick()">Close</button>
-
-</div>
+  </div>
+  <div class="contact-dialog-action">
+    <button class="btnSave" md-raised-button (click)="onSave()">Add</button>
+    <button class="btnClose" md-raised-button md-dialog-close>Close</button>
+  </div>
 </div>

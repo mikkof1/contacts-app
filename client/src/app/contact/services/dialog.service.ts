@@ -6,6 +6,7 @@ import {ContactDialogComponent} from "../contact-dialog/contact-dialog.component
 @Injectable()
 export class DialogService {
 
+
   constructor(private dialog: MdDialog) {
   }
 
