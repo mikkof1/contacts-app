@@ -1,5 +1,8 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Contact} from "../contact";
+import {DialogService} from "../services/dialog.service";
+import {ContactService} from "../services/contact.service";
+import {MdDialogRef} from "@angular/material";
 
 @Component({
   selector: 'app-contact-dialog',
@@ -8,22 +11,45 @@ import {Contact} from "../contact";
 })
 export class ContactDialogComponent implements OnInit {
 
-  @Input() contactIn: Contact;
-  @Output() contactOut: Contact;
-  title: string='New Contact';
-  firstName:string='Matti';
-  lastName:string='Virtanen';
-  phone:string='555-01234';
-  address:string="Katajakatu 5 as 7";
-  city:string='Tuppukylä';
+  @Input() contactInn: Contact;
 
-  constructor() { }
+  title: string = 'New Contact';
+  btnSaveText: string = 'Add';
 
-  ngOnInit() {
+  id: number = -1;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  address: string;
+  city: string;
+
+  contact: Contact = new Contact(this.id, this.firstName, this.lastName, this.phone, this.address, this.city);
+
+  constructor( private dialogRef:MdDialogRef<ContactDialogComponent>) {
+
   }
 
-  onClick(){
+  ngOnInit() {
+    if (this.contactInn) {
+      this.id = this.contactInn.id;
+      this.firstName = this.contactInn.firstName;
+      this.lastName = this.contactInn.lastName;
+      this.phone = this.contactInn.phone;
+      this.address = this.contactInn.address;
+      this.city = this.contactInn.city;
+    }
+  }
 
+  onSave() {
+    this.contact.firstName = this.firstName;
+    this.contact.lastName = this.lastName;
+    this.contact.phone = this.phone;
+    this.contact.address = this.address;
+    this.contact.city = this.city;
+
+    console.log('return this: ' + this.contact);
+
+    this.dialogRef.close(this.contact);
   }
 
 }

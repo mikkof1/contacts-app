@@ -31,7 +31,7 @@ import {ContactDialogComponent} from './contact/contact-dialog/contact-dialog.co
   ],
   providers: [ContactService, DialogService],
   bootstrap: [AppComponent],
-  entryComponents:[ ContactDialogComponent]
+  entryComponents: [ContactDialogComponent]
 })
 export class AppModule {
 

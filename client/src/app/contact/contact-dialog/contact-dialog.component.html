@@ -1,4 +1,5 @@
 <div class="contact-Dialog-Body">
+
   <div class="contact-title">{{title}}</div>
 
   <div md-dialog-content class="dialog-inputs">
@@ -22,10 +23,11 @@
       <input mdInput [(ngModel)]="city" type="text" required
              placeholder="City">
     </md-input-container>
+  </div>
 
-  </div>
   <div class="contact-dialog-action">
-    <button class="btnSave" md-raised-button (click)="onSave()">Add</button>
-    <button class="btnClose" md-raised-button md-dialog-close>Close</button>
+    <button class="btnSave" md-raised-button (click)="onSave()" >{{btnSaveText}}</button>
+    <button class="btnClose" md-raised-button (click)="dialogRef.close()">Close</button>
   </div>
+
 </div>

@@ -18,9 +18,10 @@ export class AppComponent {
   }
 
   addNewContact( ) {
-    console.log('first');
-     this.dialogService.contactDialog();
-    console.log('second');
+    console.log('start addFunction');
+    let con = this.dialogService.contactDialog();
+
+    console.log('end addFunction');
   }
 
 }

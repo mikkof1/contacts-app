@@ -16,14 +16,12 @@ export class ContactService {
 
   }
 
-  public findContacts(): Contact[]{
+  public findContacts() {//: Contact[]{
     return this.contacts;
   }
 
- // private makeTestContacts(){
+  public addNewContact(contact: Contact) {
+    this.contacts.push(contact);
 
-
- // }
-
-
+  }
 }
