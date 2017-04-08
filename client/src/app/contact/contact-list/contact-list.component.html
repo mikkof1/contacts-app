@@ -1,5 +1,6 @@
-<div fxLayout="column" fxLayoutAlign="space-around center"  *ngFor="let contact of contacts">
+<div fxLayout="column" fxLayoutAlign="space-around center" *ngFor="let contact of contacts">
 
-  <app-contact-list-item [contact]="contact"></app-contact-list-item>
+  <app-contact-list-item [contact]="contact" (remove)="removeConsta($event)"></app-contact-list-item>
 
 </div>
+

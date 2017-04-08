@@ -5,7 +5,7 @@ import {DialogService} from "./dialog.service";
 @Injectable()
 export class ContactService {
 
-  private testMakeTestList: boolean = true;
+  private testListIsNeeded: boolean = true;
 
   private contacts: Contact[];
   private contact: Contact;
@@ -14,6 +14,10 @@ export class ContactService {
   constructor(private dialogService: DialogService) {
     if (!localStorage.getItem(this.contactLocalStorageKey)) {
       localStorage.setItem(this.contactLocalStorageKey, JSON.stringify([]));
+      if (this.testListIsNeeded) {
+        this.mekeTestList();
+        this.saveContactsToLocalStorage();
+      }
     }
 
   }
@@ -40,13 +44,39 @@ export class ContactService {
   public addNewContact() {
     console.log('addFunction contacService Contacts= ' + this.contacts);
     let returnValue = this.dialogService.contactDialog();
+    let nextId = 0;
+    let lastId = this.contacts.map(function (c) {
+      if (c.id > nextId) {
+        nextId = c.id
+      }
+    });
+    nextId++;
 
+    console.log('nextId: ' + nextId);
     returnValue.subscribe(result => {
-      this.contacts.push(result);
+      if (!result) {
+        return;
+      }
+      let newContact = result;
+      newContact.id = nextId;
+      this.contacts.push(newContact);
       this.saveContactsToLocalStorage();
     });
 
   }
+
+  public deleteContact(contact: Contact) {
+    console.log('This contact will be erased= ' + contact.id);
+    let editList: Contact[] = [];
+    for (let i = 0; i < this.contacts.length; i++) {
+      if (this.contacts[i].id != contact.id) {
+        editList.push(this.contacts[i]);
+      }
+    }
+    this.contacts = editList;
+    this.saveContactsToLocalStorage();
+  }
+
 
   private saveContactsToLocalStorage() {
     localStorage.setItem(this.contactLocalStorageKey, JSON.stringify(this.contacts));

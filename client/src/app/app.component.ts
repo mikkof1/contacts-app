@@ -22,5 +22,10 @@ export class AppComponent {
     this.contactServices.addNewContact();
 
   }
+  deleteContact(contact:Contact){
+    console.log('delete in root id: '+contact.id);
+    this.contactServices.deleteContact(contact);
+    this.contactsList = this.contactServices.findContacts();
+  }
 
 }

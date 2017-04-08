@@ -2,17 +2,9 @@
   {{title}}
 </h1>
 <div>
-<app-contact-list [contacts]="contactsList"></app-contact-list>
+  <app-contact-list [contacts]="contactsList" (removeContact)="deleteContact($event)"></app-contact-list>
 </div>
 <br>
-
-
-
-
-<button md-raised-button>Click me</button>
-
-
-
 
 <button id="btnAdd" md-fab (click)="addNewContact()">
   <md-icon>add</md-icon>

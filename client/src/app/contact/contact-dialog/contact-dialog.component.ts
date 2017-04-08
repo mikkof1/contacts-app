@@ -48,8 +48,6 @@ export class ContactDialogComponent implements OnInit {
     this.contact.address = this.address;
     this.contact.city = this.city;
 
-    console.log('return this: ' + this.contact);
-
     this.dialogRef.close(this.contact);
   }
 

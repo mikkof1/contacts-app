@@ -12,13 +12,19 @@ export class ContactListItemComponent implements OnInit {
 
   @Input() contact: Contact;
   @Input() edit: EventEmitter<Contact>;
-  @Input() remove: EventEmitter<Contact>;
+  @Output() remove: EventEmitter<Contact>;
   @Input() showOnMap: EventEmitter<Contact>;
 
   constructor() {
+    this.remove = new EventEmitter();
   }
 
   ngOnInit() {
+  }
+
+  deleteContact() {
+    console.log('this is delete button: ' + this.contact.id);
+    this.remove.emit(this.contact);
   }
 
   editContact() {
@@ -26,9 +32,6 @@ export class ContactListItemComponent implements OnInit {
 
   }
 
-  deleteContact() {
-    console.log('this is delete button: ' + this.contact.id);
-  }
 
   openMap() {
     console.log('Map open: ' + this.contact.id);

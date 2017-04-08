@@ -13,12 +13,18 @@ export class ContactListComponent implements OnInit {
   @Output() removeContact: EventEmitter<Contact>;
   @Output() showContactOnMap: EventEmitter<Contact>;
 
-  constructor() {
 
+  constructor() {
+    this.removeContact = new EventEmitter();
   }
 
   ngOnInit() {
 
+  }
+
+  removeConsta(contact: Contact) {
+    console.log('This is list, and id:' + contact.id);
+    this.removeContact.emit(contact);
   }
 
 
