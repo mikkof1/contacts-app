@@ -5,19 +5,35 @@ import {DialogService} from "./dialog.service";
 @Injectable()
 export class ContactService {
 
-  public contacts: Contact[];
+  private testMakeTestList: boolean = true;
+
+  private contacts: Contact[];
   private contact: Contact;
+  private contactLocalStorageKey: string = 'ca-storageKey';
 
   constructor(private dialogService: DialogService) {
-
+    if (!localStorage.getItem(this.contactLocalStorageKey)) {
+      localStorage.setItem(this.contactLocalStorageKey, JSON.stringify([]));
+    }
 
   }
 
 
-  public findContacts(): Contact[] {
-    if (!this.contacts) {
-      this.mekeTestList();
+  public findContacts() {//: Contact[] {
+
+    console.log('Open localstorage ');
+
+    let data = localStorage.getItem(this.contactLocalStorageKey);
+    let table = JSON.parse(data);
+    let contacts = [];
+
+    for (var i = 0; i < table.length; i++) {
+      let localContact: Contact = new Contact(table[i]._id, table[i]._firstName, table[i]._lastName, table[i]._phone, table[i]._address, table[i]._city);
+      contacts.push(localContact);
     }
+
+    this.contacts = contacts;
+
     return this.contacts;
   }
 
@@ -25,10 +41,15 @@ export class ContactService {
     console.log('addFunction contacService Contacts= ' + this.contacts);
     let returnValue = this.dialogService.contactDialog();
 
-    returnValue.subscribe(joku => {
-      this.contacts.push(joku)
+    returnValue.subscribe(result => {
+      this.contacts.push(result);
+      this.saveContactsToLocalStorage();
     });
 
+  }
+
+  private saveContactsToLocalStorage() {
+    localStorage.setItem(this.contactLocalStorageKey, JSON.stringify(this.contacts));
   }
 
   private mekeTestList() {

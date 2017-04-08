@@ -14,6 +14,7 @@ export class ContactListComponent implements OnInit {
   @Output() showContactOnMap: EventEmitter<Contact>;
 
   constructor() {
+
   }
 
   ngOnInit() {

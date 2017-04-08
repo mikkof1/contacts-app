@@ -23,7 +23,7 @@ export class ContactDialogComponent implements OnInit {
   address: string;
   city: string;
 
-  contact: Contact;// = new Contact(this.id, this.firstName, this.lastName, this.phone, this.address, this.city);
+  contact: Contact= new Contact();//this.id, this.firstName, this.lastName, this.phone, this.address, this.city);
 
   constructor( private dialogRef:MdDialogRef<ContactDialogComponent>) {
 
