@@ -17,19 +17,20 @@ export class ContactDialogComponent implements OnInit {
   btnSaveText: string = 'Add';
 
   id: number = -1;
-  firstName: string;
+  firstName: string='';
   lastName: string;
   phone: string;
   address: string;
   city: string;
 
-  contact: Contact = new Contact(this.id, this.firstName, this.lastName, this.phone, this.address, this.city);
+  contact: Contact;// = new Contact(this.id, this.firstName, this.lastName, this.phone, this.address, this.city);
 
   constructor( private dialogRef:MdDialogRef<ContactDialogComponent>) {
 
   }
 
   ngOnInit() {
+    console.log('dialog read contact');
     if (this.contactInn) {
       this.id = this.contactInn.id;
       this.firstName = this.contactInn.firstName;

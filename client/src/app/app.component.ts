@@ -13,15 +13,14 @@ export class AppComponent {
 
   contactsList: Contact[];
 
-  constructor(private contactServices: ContactService, private dialogService: DialogService ){
+  constructor(private contactServices: ContactService) { //, private dialogService: DialogService
     this.contactsList = this.contactServices.findContacts();
   }
 
-  addNewContact( ) {
+  addNewContact() {
     console.log('start addFunction');
-    let con = this.dialogService.contactDialog();
+    this.contactServices.addNewContact();
 
-    console.log('end addFunction');
   }
 
 }
