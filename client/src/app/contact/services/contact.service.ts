@@ -12,6 +12,7 @@ export class ContactService {
   private contactLocalStorageKey: string = 'ca-storageKey';
 
   constructor(private dialogService: DialogService) {
+
     if (!localStorage.getItem(this.contactLocalStorageKey)) {
       localStorage.setItem(this.contactLocalStorageKey, JSON.stringify([]));
       if (this.testListIsNeeded) {
@@ -52,7 +53,6 @@ export class ContactService {
     });
     nextId++;
 
-    console.log('nextId: ' + nextId);
     returnValue.subscribe(result => {
       if (!result) {
         return;
@@ -63,6 +63,19 @@ export class ContactService {
       this.saveContactsToLocalStorage();
     });
 
+  }
+
+  public editContact(contact:Contact){
+    let returnValue = this.dialogService.contactDialog(contact);
+    let index = this.contacts.findIndex(c=>c.id==contact.id);
+    returnValue.subscribe(result => {
+      if (!result) {
+        return;
+      }
+      let editedContact = result;
+      this.contacts[index]=editedContact;
+      this.saveContactsToLocalStorage();
+    });
   }
 
   public deleteContact(contact: Contact) {

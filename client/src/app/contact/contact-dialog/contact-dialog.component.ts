@@ -1,7 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Contact} from "../contact";
-import {DialogService} from "../services/dialog.service";
-import {ContactService} from "../services/contact.service";
 import {MdDialogRef} from "@angular/material";
 
 @Component({
@@ -16,22 +14,26 @@ export class ContactDialogComponent implements OnInit {
   title: string = 'New Contact';
   btnSaveText: string = 'Add';
 
-  id: number = -1;
-  firstName: string='';
+  id: number;
+  firstName: string;
   lastName: string;
   phone: string;
   address: string;
   city: string;
 
-  contact: Contact= new Contact();//this.id, this.firstName, this.lastName, this.phone, this.address, this.city);
+  contact: Contact = new Contact();
 
-  constructor( private dialogRef:MdDialogRef<ContactDialogComponent>) {
+  constructor(private dialogRef: MdDialogRef<ContactDialogComponent>) {
 
   }
 
   ngOnInit() {
     console.log('dialog read contact');
     if (this.contactInn) {
+      this.title = 'Edit Contact';
+      this.btnSaveText = 'Save';
+      this.contact = this.contactInn;
+
       this.id = this.contactInn.id;
       this.firstName = this.contactInn.firstName;
       this.lastName = this.contactInn.lastName;
@@ -50,5 +52,6 @@ export class ContactDialogComponent implements OnInit {
 
     this.dialogRef.close(this.contact);
   }
+
 
 }

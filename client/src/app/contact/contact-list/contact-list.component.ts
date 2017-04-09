@@ -16,15 +16,26 @@ export class ContactListComponent implements OnInit {
 
   constructor() {
     this.removeContact = new EventEmitter();
+    this.editContact = new EventEmitter();
+    this.showContactOnMap = new EventEmitter();
   }
 
   ngOnInit() {
 
   }
 
-  removeConsta(contact: Contact) {
+  deleteContactListItem(contact: Contact) {
     console.log('This is list, and id:' + contact.id);
     this.removeContact.emit(contact);
+  }
+
+  editContactListItem(contact: Contact) {
+    this.editContact.emit(contact);
+  }
+
+
+  showMapListItem(contact: Contact) {
+    this.showContactOnMap.emit(contact);
   }
 
 
