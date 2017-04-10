@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Contact} from "../contact";
+import {Contact} from "../../contact";
 import {MdDialogRef} from "@angular/material";
+
 
 @Component({
   selector: 'app-contact-dialog',

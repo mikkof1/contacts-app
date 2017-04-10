@@ -1,7 +1,8 @@
 import {Injectable, Input} from '@angular/core';
 import {Contact} from "../contact";
 import {MdDialog, MdDialogRef} from "@angular/material";
-import {ContactDialogComponent} from "../contact-dialog/contact-dialog.component";
+import {ContactDialogComponent} from "../Dialogs/contact-dialog/contact-dialog.component";
+import {MapDialogComponent} from "../Dialogs/map-dialog/map-dialog.component";
 
 @Injectable()
 export class DialogService {
@@ -17,6 +18,11 @@ export class DialogService {
     return dialogRef.afterClosed();
   }
 
+  public openMap(contact: Contact){
+    let dialogRef = this.dialog.open(MapDialogComponent);
+    dialogRef.componentInstance.contact = contact;
+    return dialogRef.afterClosed();
+  }
 
 }
 

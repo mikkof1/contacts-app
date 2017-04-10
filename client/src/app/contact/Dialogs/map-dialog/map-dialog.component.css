@@ -1,0 +1,18 @@
+.map-dialog-body{
+  width: 600px;
+  height: 600px;
+
+  padding: 5px;
+}
+
+#map-title{
+
+}
+
+
+.btnClose{
+  bottom: 20px;
+  right: 300px;
+
+  position: absolute;
+}
