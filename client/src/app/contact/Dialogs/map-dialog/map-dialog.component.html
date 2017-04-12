@@ -3,9 +3,14 @@
     {{contact.firstName}} {{contact.lastName}}
   </div>
   <div md-dialog-content>
-<iframe src="{{mapUrl}}"></iframe>
+<iframe [src]="trustedUrl()"></iframe>
 
   </div>
+
+  <br>
+  <!--div>url: {{url}}</div-->
+
+
   <div class="map-dialog-action">
     <button class="btnClose" md-raised-button md-dialog-close>Close</button>
   </div>

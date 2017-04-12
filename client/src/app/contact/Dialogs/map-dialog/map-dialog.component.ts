@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Contact} from "../../contact";
-//import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-map-dialog',
@@ -10,15 +10,19 @@ import {Contact} from "../../contact";
 export class MapDialogComponent implements OnInit {
 
   @Input() contact: Contact;
- // mapUrl: SafeResourceUrl;
+  url:string;
 
-  constructor(){//public sanitizer: DomSanitizer) {
+  constructor(public sanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
-    let url ='www.google.fi';// 'https://www.google.fi/maps/place/' + this.contact.address + ',+' + this.contact.city;
-    console.log('mapUrl: ' + url);
-  //  this.mapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    this.url = 'https://maps.google.com/maps?q=' + this.contact.address + ',+' + this.contact.city + '&output=embed';
+    console.log('mapUrl: ' + this.url);
+
+  }
+
+  trustedUrl(){
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
   }
 
 

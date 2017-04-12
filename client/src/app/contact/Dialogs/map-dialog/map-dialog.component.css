@@ -1,8 +1,13 @@
 .map-dialog-body{
-  width: 600px;
-  height: 600px;
+  width: 455px;
+  height: 420px;
 
-  padding: 5px;
+}
+
+iframe{
+  width: 450px;
+  height: 300px;
+
 }
 
 #map-title{
@@ -11,8 +16,5 @@
 
 
 .btnClose{
-  bottom: 20px;
-  right: 300px;
-
-  position: absolute;
+float: right;
 }
