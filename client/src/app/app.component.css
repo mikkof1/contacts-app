@@ -1,6 +1,6 @@
 
-#btnAdd{
+#btnAdd {
   bottom: 30px;
-  right: 30px;
+  left: calc(50% + 200px);
   position: fixed;
 }

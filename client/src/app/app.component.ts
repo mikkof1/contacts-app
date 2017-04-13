@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {Contact} from "./contact/contact";
 import {ContactService} from "./contact/services/contact.service";
 import {DialogService} from "./contact/services/dialog.service";
@@ -11,10 +11,12 @@ import {DialogService} from "./contact/services/dialog.service";
 export class AppComponent {
   title = 'Contact list';
 
-  contactsList: Contact[];
+ contactsList: Contact[];
 
-  constructor(private contactServices: ContactService, private dialogServices: DialogService) { //, private dialogService: DialogService
-    this.contactsList = this.contactServices.findContacts();
+  constructor(private contactServices: ContactService, private dialogServices: DialogService) {
+    this.contactServices.findContacts().subscribe(res=>{
+      this.contactsList=res;
+    });
   }
 
   addNewContact() {

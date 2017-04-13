@@ -1,21 +1,21 @@
 export class Contact {
-  private _id: number;
-  private _firstName: string;
-  private _lastName: string;
-  private _phone: string;
-  private _address: string;
-  private _city: string;
+  public id: number;
+  public firstName: string;
+  public lastName: string;
+  public phone: string;
+  public address: string;
+  public city: string;
 
   constructor(id?: number, firstName?: string, lastName?: string, phone?: string, address?: string, city?: string) {
-    this._id = id;
-    this._firstName = firstName;
-    this._lastName = lastName;
-    this._phone = phone;
-    this._address = address;
-    this._city = city;
+    this.id = id;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.phone = phone;
+    this.address = address;
+    this.city = city;
   }
 
-
+/*
   get id(): number {
     return this._id;
   }
@@ -62,5 +62,5 @@ export class Contact {
 
   set city(value: string) {
     this._city = value;
-  }
+  }*/
 }

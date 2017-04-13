@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Contact} from "../contact";
 import {DialogService} from "./dialog.service";
+import {Http} from "@angular/http";
 
 @Injectable()
 export class ContactService {
@@ -11,7 +12,9 @@ export class ContactService {
   private contact: Contact;
   private contactLocalStorageKey: string = 'ca-storageKey';
 
-  constructor(private dialogService: DialogService) {
+  apiUrl: string = "http://localhost:51343/api/contacts/";
+
+  constructor(private dialogService: DialogService, private http: Http) {
 
     if (!localStorage.getItem(this.contactLocalStorageKey)) {
       localStorage.setItem(this.contactLocalStorageKey, JSON.stringify([]));
@@ -24,22 +27,31 @@ export class ContactService {
   }
 
 
-  public findContacts() {//: Contact[] {
+  public findContactsLocal(): Contact[] {
 
     console.log('Open localstorage ');
 
     let data = localStorage.getItem(this.contactLocalStorageKey);
-    let table = JSON.parse(data);
-    let contacts = [];
-
-    for (var i = 0; i < table.length; i++) {
-      let localContact: Contact = new Contact(table[i]._id, table[i]._firstName, table[i]._lastName, table[i]._phone, table[i]._address, table[i]._city);
-      contacts.push(localContact);
-    }
-
-    this.contacts = contacts;
-
+    this.contacts=JSON.parse(data);
     return this.contacts;
+  }
+
+  public findContacts():any {
+   return this.http.get(this.apiUrl)
+      .map(response => response.json());
+    /*
+      .subscribe(result => {
+        this.contacts = result;
+        console.log('firstname: ' + this.contacts[0].firstName);
+        return this.contacts;
+      });
+*/
+
+
+  }
+
+  private getApi(){
+
   }
 
   public addNewContact() {
@@ -65,15 +77,15 @@ export class ContactService {
 
   }
 
-  public editContact(contact:Contact){
+  public editContact(contact: Contact) {
     let returnValue = this.dialogService.contactDialog(contact);
-    let index = this.contacts.findIndex(c=>c.id==contact.id);
+    let index = this.contacts.findIndex(c => c.id == contact.id);
     returnValue.subscribe(result => {
       if (!result) {
         return;
       }
       let editedContact = result;
-      this.contacts[index]=editedContact;
+      this.contacts[index] = editedContact;
       this.saveContactsToLocalStorage();
     });
   }
@@ -92,6 +104,7 @@ export class ContactService {
 
 
   private saveContactsToLocalStorage() {
+
     localStorage.setItem(this.contactLocalStorageKey, JSON.stringify(this.contacts));
   }
 
