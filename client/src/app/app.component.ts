@@ -11,26 +11,26 @@ import {DialogService} from "./contact/services/dialog.service";
 export class AppComponent {
   title = 'Contact list';
 
- contactsList: Contact[];
+  contactsList: Contact[];
 
   constructor(private contactServices: ContactService, private dialogServices: DialogService) {
-    this.contactServices.findContacts().subscribe(res=>{
-      this.contactsList=res;
+    this.contactServices.findContacts().subscribe(response => {
+      this.contactsList = response;
     });
   }
 
   addNewContact() {
-    this.contactServices.addNewContact();
-
+    // this.contactServices.addNewContact();
+    this.contactServices.addNewContact(this.contactsList);
   }
 
   deleteContact(contact: Contact) {
-    this.contactServices.deleteContact(contact);
-    this.contactsList = this.contactServices.findContacts();
+    //  this.contactServices.deleteContact(contact);
+    //   this.contactsList = this.contactServices.findContacts();
   }
 
   editContact(contact: Contact) {
-    this.contactServices.editContact(contact);
+    //   this.contactServices.editContact(contact);
   }
 
   showMap(contact: Contact) {
