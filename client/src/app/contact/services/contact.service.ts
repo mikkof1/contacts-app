@@ -12,7 +12,7 @@ export class ContactService {
   private contact: Contact;
   private contactLocalStorageKey: string = 'ca-storageKey';
 
-  private apiUrl: string = "http://localhost:51343/api/contacts/";
+  private apiUrl: string = "http://localhost:49478/api/contacts";
   private headers;
 
   constructor(private dialogService: DialogService, private http: Http) {
