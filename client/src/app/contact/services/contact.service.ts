@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Contact} from "../contact";
 import {DialogService} from "./dialog.service";
-import {Http} from "@angular/http";
+import {Http, Headers} from "@angular/http";
 
 @Injectable()
 export class ContactService {
@@ -10,16 +10,15 @@ export class ContactService {
 
   // private contacts: Contact[];
   private contact: Contact;
-  private contactLocalStorageKey: string = 'ca-storageKey';
+ // private contactLocalStorageKey: string = 'ca-storageKey';
 
   private apiUrl: string = "http://localhost:49478/api/contacts";
   private headers;
 
   constructor(private dialogService: DialogService, private http: Http) {
 
-    this.headers = new Headers({
-      'Content-Type': 'application/json'
-    });
+    this.headers = new Headers();
+    this.headers.append('Content-Type', 'application/json');
 
     /* // For LocalStorage use : Save for Educational use
      if (!localStorage.getItem(this.contactLocalStorageKey)) {
@@ -37,7 +36,7 @@ export class ContactService {
   }
 
   public addNewContact(contacts: Contact[]) {
-    console.log('New contact canceled');
+    console.log('New contact start');
     let returnValue = this.dialogService.contactDialog();
     returnValue.subscribe(result => {
       if (!result) {
@@ -47,41 +46,24 @@ export class ContactService {
       let newContact = result;
 
       contacts.push(newContact);
-      this.addNewContactToApi(newContact);
+      let data = JSON.stringify(newContact);
+
+      this.http.post(this.apiUrl, data, {headers: this.headers}).subscribe(result => {
+        console.log('New added: ' + result);
+      });
+      //  this.addNewContactToApi(newContact);
     });
 
   }
 
-  private addNewContactToApi(contact: Contact) {
-    console.log('New contact get api');
-    let data = JSON.stringify(contact);
-    this.http.post(this.apiUrl, data, this.headers);
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  /* private addNewContactToApi(contact: Contact) {
+   console.log('New contact get api');
+   let data = JSON.stringify(contact);
+   this.http.post(this.apiUrl, data, this.options);
+   //  return this.http.get(this.apiUrl).map(response => response.json());
+   //  return  this.http.post(this.apiUrl,data).map(respo=> respo.json());
+   }
+   */
 
   /*
    // ----------------- For LocalStorage use : Save for Educational use ------------------------------------- //
