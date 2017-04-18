@@ -5,6 +5,7 @@ import {HttpModule} from '@angular/http';
 import {MaterialModule, MdDialog} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {RouterModule} from '@angular/router'
 
 import {AppComponent} from './app.component';
 import {ContactListComponent} from './contact/contact-list/contact-list.component';
@@ -15,7 +16,19 @@ import {ApiContactService} from "./contact/services/api-contact.service";
 import {ContactDialogComponent} from './contact/Dialogs/contact-dialog/contact-dialog.component';
 import { MapDialogComponent } from './map/map-dialog/map-dialog.component';
 import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
+import { ContactsComponent } from './contact/contacts.component';
 
+const routes = [
+  {
+    path: '',
+    redirectTo: 'contacts',
+    pathMatch: 'full'
+  },
+  {
+    path: 'contacts',
+    component: ContactsComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -24,7 +37,8 @@ import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
     ContactListItemComponent,
     ContactDialogComponent,
     MapDialogComponent,
-    ContactAddressPipe
+    ContactAddressPipe,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +46,8 @@ import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
     HttpModule,
     MaterialModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [ContactService, DialogService, ApiContactService],
   bootstrap: [AppComponent],
