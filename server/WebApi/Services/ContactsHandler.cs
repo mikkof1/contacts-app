@@ -13,14 +13,14 @@ namespace WebApi.Services
     public class ContactsHandler
     {
         private static List<Contact> _contactsList = new List<Contact>();
-        private static int _id = 10;
+        //  private static int _id = 10;
         private readonly string _filePath = "d:\\data.txt";
 
         private bool _makeTestList = true;
 
         public ContactsHandler()
         {
-            ReadListXml();
+            ReadListJson();
         }
 
         public List<Contact> GetList()
@@ -30,11 +30,11 @@ namespace WebApi.Services
 
         public int AddNewContact(Contact newContact)
         {
-            _id++;
-            newContact.id = _id;
+            int id = FindNextId();
+            newContact.id = id;
             _contactsList.Add(newContact);
             SaveDataJson();
-            return _id;
+            return id;
         }
 
         public bool EditContact(Contact contact)
@@ -52,7 +52,7 @@ namespace WebApi.Services
 
         public bool DeleteContact(Contact contact)
         {
-            if (contact.id < 1)
+            if (contact.id < 0)
             {
                 return false;
             }
@@ -63,7 +63,7 @@ namespace WebApi.Services
             return true;
         }
 
-        private void ReadListXml()
+        private void ReadListJson()
         {
             if (!File.Exists(_filePath))
             {
@@ -84,6 +84,17 @@ namespace WebApi.Services
         {
             string jsonList = JsonConvert.SerializeObject(_contactsList);
             File.WriteAllText(_filePath, jsonList);
+        }
+
+        private int FindNextId()
+        {
+            int returnValue = 0;
+            if (_contactsList.Count > 0)
+            {
+                returnValue = _contactsList.Max(res => res.id);
+                returnValue += 1;
+            }
+            return returnValue;
         }
 
         private List<Contact> TestContactsList()

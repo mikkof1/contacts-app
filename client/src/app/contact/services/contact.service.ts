@@ -8,144 +8,96 @@ export class ContactService {
 
   private testListIsNeeded: boolean = true;
 
-  // private contacts: Contact[];
+  private contacts: Contact[];
   private contact: Contact;
- // private contactLocalStorageKey: string = 'ca-storageKey';
+  private contactLocalStorageKey: string = 'ca-storageKey';
 
-  private apiUrl: string = "http://localhost:49478/api/contacts";
-  private headers;
 
   constructor(private dialogService: DialogService, private http: Http) {
 
-    this.headers = new Headers();
-    this.headers.append('Content-Type', 'application/json');
-
-    /* // For LocalStorage use : Save for Educational use
-     if (!localStorage.getItem(this.contactLocalStorageKey)) {
-     localStorage.setItem(this.contactLocalStorageKey, JSON.stringify([]));
-     if (this.testListIsNeeded) {
-     this.mekeTestList();
-     this.saveContactsToLocalStorage();
-     }
-     }*/
+    if (!localStorage.getItem(this.contactLocalStorageKey)) {
+      localStorage.setItem(this.contactLocalStorageKey, JSON.stringify([]));
+      if (this.testListIsNeeded) {
+        this.mekeTestList();
+        this.saveContactsToLocalStorage();
+      }
+    }
 
   }
 
-  public findContacts(): any {
-    return this.http.get(this.apiUrl).map(response => response.json());
+
+  public findContactsLocal(): Contact[] {
+
+    console.log('Open localstorage ');
+
+    let data = localStorage.getItem(this.contactLocalStorageKey);
+    this.contacts = JSON.parse(data);
+    return this.contacts;
   }
 
-  public addNewContact(contacts: Contact[]) {
-    console.log('New contact start');
+
+  public addNewContactLocal() {
+    console.log('addFunction contacService Contacts= ' + this.contacts);
     let returnValue = this.dialogService.contactDialog();
+    let nextId = 0;
+    let lastId = this.contacts.map(function (c) {
+      if (c.id > nextId) {
+        nextId = c.id
+      }
+    });
+    nextId++;
+
     returnValue.subscribe(result => {
       if (!result) {
-        console.log('New contact canceled');
         return;
       }
       let newContact = result;
-
-      contacts.push(newContact);
-      let data = JSON.stringify(newContact);
-
-      this.http.post(this.apiUrl, data, {headers: this.headers}).subscribe(result => {
-        console.log('New added: ' + result);
-      });
-
+      newContact.id = nextId;
+      this.contacts.push(newContact);
+      this.saveContactsToLocalStorage();
     });
 
   }
 
-  public deleteContact(contact: Contact) {
-    console.log('Delete contact start');
+  public editContactLocal(contact: Contact) {
+    let returnValue = this.dialogService.contactDialog(contact);
+    let index = this.contacts.findIndex(c => c.id == contact.id);
+    returnValue.subscribe(result => {
+      if (!result) {
+        return;
+      }
+      let editedContact = result;
+      this.contacts[index] = editedContact;
+      this.saveContactsToLocalStorage();
+    });
+  }
 
-    let data = JSON.stringify(contact);
-    let options:RequestOptions = new RequestOptions({ headers: this.headers , body: data});
-
-    this.http.delete(this.apiUrl,options).subscribe(result => {
-        console.log('delete: ' + result);
-      });
-//
-
-
+  public deleteContactLocal(contact: Contact) {
+    console.log('This contact will be erased= ' + contact.id);
+    let editList: Contact[] = [];
+    for (let i = 0; i < this.contacts.length; i++) {
+      if (this.contacts[i].id != contact.id) {
+        editList.push(this.contacts[i]);
+      }
+    }
+    this.contacts = editList;
+    this.saveContactsToLocalStorage();
   }
 
 
-  /*
-   // ----------------- For LocalStorage use : Save for Educational use ------------------------------------- //
+  private saveContactsToLocalStorage() {
 
-   public findContactsLocal(): Contact[] {
+    localStorage.setItem(this.contactLocalStorageKey, JSON.stringify(this.contacts));
+  }
 
-   console.log('Open localstorage ');
+  private mekeTestList() {
+    this.contacts = [
+      new Contact(1, 'Mauno', 'Mäki', '+358 991 123', 'Ääkköskuja 58 b 9', 'Åålandia'),
+      new Contact(2, 'Bruce', 'Wayne', '555-1234', 'Wayne Manor', 'Gotham City'),
+      new Contact(3, 'Mikki', 'Hiiri', '888 12332', 'Torikatu 5', 'Ankkalinna'),
+      new Contact(8, 'Aku', 'Ankka', '456-789789', 'Paratiisitie 13', 'Ankkalinna')
+    ];
+  }
 
-   let data = localStorage.getItem(this.contactLocalStorageKey);
-   this.contacts = JSON.parse(data);
-   return this.contacts;
-   }
-
-
-   public addNewContactLocal() {
-   console.log('addFunction contacService Contacts= ' + this.contacts);
-   let returnValue = this.dialogService.contactDialog();
-   let nextId = 0;
-   let lastId = this.contacts.map(function (c) {
-   if (c.id > nextId) {
-   nextId = c.id
-   }
-   });
-   nextId++;
-
-   returnValue.subscribe(result => {
-   if (!result) {
-   return;
-   }
-   let newContact = result;
-   newContact.id = nextId;
-   this.contacts.push(newContact);
-   this.saveContactsToLocalStorage();
-   });
-
-   }
-
-   public editContactLocal(contact: Contact) {
-   let returnValue = this.dialogService.contactDialog(contact);
-   let index = this.contacts.findIndex(c => c.id == contact.id);
-   returnValue.subscribe(result => {
-   if (!result) {
-   return;
-   }
-   let editedContact = result;
-   this.contacts[index] = editedContact;
-   this.saveContactsToLocalStorage();
-   });
-   }
-
-   public deleteContactLocal(contact: Contact) {
-   console.log('This contact will be erased= ' + contact.id);
-   let editList: Contact[] = [];
-   for (let i = 0; i < this.contacts.length; i++) {
-   if (this.contacts[i].id != contact.id) {
-   editList.push(this.contacts[i]);
-   }
-   }
-   this.contacts = editList;
-   this.saveContactsToLocalStorage();
-   }
-
-
-   private saveContactsToLocalStorage() {
-
-   localStorage.setItem(this.contactLocalStorageKey, JSON.stringify(this.contacts));
-   }
-
-   private mekeTestList() {
-   this.contacts = [
-   new Contact(1, 'Mauno', 'Mäki', '+358 991 123', 'Ääkköskuja 58 b 9', 'Åålandia'),
-   new Contact(2, 'Bruce', 'Wayne', '555-1234', 'Wayne Manor', 'Gotham City'),
-   new Contact(3, 'Mikki', 'Hiiri', '888 12332', 'Torikatu 5', 'Ankkalinna'),
-   new Contact(8, 'Aku', 'Ankka', '456-789789', 'Paratiisitie 13', 'Ankkalinna')
-   ];
-   }
-   */
 
 }

@@ -11,6 +11,7 @@ import {ContactListComponent} from './contact/contact-list/contact-list.componen
 import {ContactListItemComponent} from './contact/contact-list/contact-list-item/contact-list-item.component';
 import {ContactService} from "./contact/services/contact.service";
 import {DialogService} from "./contact/services/dialog.service";
+import {ApiContactService} from "./contact/services/api-contact.service";
 import {ContactDialogComponent} from './contact/Dialogs/contact-dialog/contact-dialog.component';
 import { MapDialogComponent } from './contact/Dialogs/map-dialog/map-dialog.component';
 import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
@@ -32,7 +33,7 @@ import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
     BrowserAnimationsModule,
     FlexLayoutModule
   ],
-  providers: [ContactService, DialogService],
+  providers: [ContactService, DialogService, ApiContactService],
   bootstrap: [AppComponent],
   entryComponents: [ContactDialogComponent, MapDialogComponent]
 })

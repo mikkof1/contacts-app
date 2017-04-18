@@ -8,8 +8,9 @@
     <md-card-title >{{contact.firstName+' '+contact.lastName}}</md-card-title>
     <table class="contact-item-table">
       <tr><td>Phone:</td><td>{{contact.phone}}</td></tr>
-      <tr><td>Address:</td><td> {{contact.address | contactAddress}}</td></tr>
-      <!--tr><td>City:</td><td> {{contact.city}}</td></tr-->
+      <tr><td>Address:</td><td> {{contact.address}}</td></tr>
+      <tr><td>City:</td><td> {{contact.city}}</td></tr>
+      <tr><td>osoite: </td><td>{{contact.address | contactAddress}}</td></tr>
     </table>
   </md-card-content>
 

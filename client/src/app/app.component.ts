@@ -14,27 +14,25 @@ export class AppComponent {
   contactsList: Contact[];
 
   constructor(private contactServices: ContactService, private dialogServices: DialogService) {
-    this.contactServices.findContacts().subscribe(response => {
-      this.contactsList = response;
-    });
+    this.contactsList = this.contactServices.findContactsLocal();
   }
 
   addNewContact() {
-    // this.contactServices.addNewContact();
-    this.contactServices.addNewContact(this.contactsList);
+    this.contactServices.addNewContactLocal();
   }
 
   deleteContact(contact: Contact) {
-    this.contactServices.deleteContact(contact);
-  //  this.contactsList = this.contactServices.findContacts();
+    this.contactServices.deleteContactLocal(contact);
+    this.contactsList = this.contactServices.findContactsLocal();
   }
 
   editContact(contact: Contact) {
-    //   this.contactServices.editContact(contact);
+    this.contactServices.editContactLocal(contact);
   }
 
   showMap(contact: Contact) {
     this.dialogServices.openMap(contact);
   }
+
 
 }
