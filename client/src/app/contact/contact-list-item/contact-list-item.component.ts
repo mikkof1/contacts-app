@@ -1,7 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Contact} from "../../contact";
-import {DialogService} from "../../services/dialog.service";
-import {ContactListComponent} from "../contact-list.component";
+import {Contact} from "../contact";
 
 @Component({
   selector: 'app-contact-list-item',
