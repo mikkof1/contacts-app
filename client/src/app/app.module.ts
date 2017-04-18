@@ -13,6 +13,7 @@ import {ContactService} from "./contact/services/contact.service";
 import {DialogService} from "./contact/services/dialog.service";
 import {ContactDialogComponent} from './contact/Dialogs/contact-dialog/contact-dialog.component';
 import { MapDialogComponent } from './contact/Dialogs/map-dialog/map-dialog.component';
+import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MapDialogComponent } from './contact/Dialogs/map-dialog/map-dialog.comp
     ContactListComponent,
     ContactListItemComponent,
     ContactDialogComponent,
-    MapDialogComponent
+    MapDialogComponent,
+    ContactAddressPipe
   ],
   imports: [
     BrowserModule,

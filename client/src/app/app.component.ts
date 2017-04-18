@@ -25,8 +25,8 @@ export class AppComponent {
   }
 
   deleteContact(contact: Contact) {
-    //  this.contactServices.deleteContact(contact);
-    //   this.contactsList = this.contactServices.findContacts();
+    this.contactServices.deleteContact(contact);
+  //  this.contactsList = this.contactServices.findContacts();
   }
 
   editContact(contact: Contact) {

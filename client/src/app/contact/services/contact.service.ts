@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Contact} from "../contact";
 import {DialogService} from "./dialog.service";
-import {Http, Headers} from "@angular/http";
+import {Http, Headers, RequestOptions} from "@angular/http";
 
 @Injectable()
 export class ContactService {
@@ -51,19 +51,25 @@ export class ContactService {
       this.http.post(this.apiUrl, data, {headers: this.headers}).subscribe(result => {
         console.log('New added: ' + result);
       });
-      //  this.addNewContactToApi(newContact);
+
     });
 
   }
 
-  /* private addNewContactToApi(contact: Contact) {
-   console.log('New contact get api');
-   let data = JSON.stringify(contact);
-   this.http.post(this.apiUrl, data, this.options);
-   //  return this.http.get(this.apiUrl).map(response => response.json());
-   //  return  this.http.post(this.apiUrl,data).map(respo=> respo.json());
-   }
-   */
+  public deleteContact(contact: Contact) {
+    console.log('Delete contact start');
+
+    let data = JSON.stringify(contact);
+    let options:RequestOptions = new RequestOptions({ headers: this.headers , body: data});
+
+    this.http.delete(this.apiUrl,options).subscribe(result => {
+        console.log('delete: ' + result);
+      });
+//
+
+
+  }
+
 
   /*
    // ----------------- For LocalStorage use : Save for Educational use ------------------------------------- //

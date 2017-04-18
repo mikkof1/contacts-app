@@ -16,7 +16,7 @@ export class MapDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.url = 'https://maps.google.com/maps?q=' + this.contact.address + ',+' + this.contact.city + '&output=embed';
+    this.url = 'https://maps.google.com/maps?output=embed&q=' + this.contact.address + ',+' + this.contact.city ;
     console.log('mapUrl: ' + this.url);
 
   }
