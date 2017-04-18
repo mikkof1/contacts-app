@@ -2,7 +2,7 @@ import {Injectable, Input} from '@angular/core';
 import {Contact} from "../contact";
 import {MdDialog, MdDialogRef} from "@angular/material";
 import {ContactDialogComponent} from "../Dialogs/contact-dialog/contact-dialog.component";
-import {MapDialogComponent} from "../Dialogs/map-dialog/map-dialog.component";
+import {MapDialogComponent} from "../../map/map-dialog/map-dialog.component";
 
 @Injectable()
 export class DialogService {
