@@ -33,6 +33,7 @@ export class ContactsComponent implements OnInit {
 
   editContact(contact: Contact) {
     this.contactServices.editContactLocal(contact);
+    this.contactsList = this.contactServices.findContactsLocal();
   }
 
   showMap(contact: Contact) {

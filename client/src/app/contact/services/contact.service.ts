@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Contact} from "../contact";
 import {DialogService} from "./dialog.service";
-import {Http, Headers, RequestOptions} from "@angular/http";
 
 @Injectable()
 export class ContactService {
@@ -13,7 +12,7 @@ export class ContactService {
   private contactLocalStorageKey: string = 'ca-storageKey';
 
 
-  constructor(private dialogService: DialogService, private http: Http) {
+  constructor(private dialogService: DialogService) {
 
     if (!localStorage.getItem(this.contactLocalStorageKey)) {
       localStorage.setItem(this.contactLocalStorageKey, JSON.stringify([]));
@@ -27,9 +26,6 @@ export class ContactService {
 
 
   public findContactsLocal(): Contact[] {
-
-    console.log('Open localstorage ');
-
     let data = localStorage.getItem(this.contactLocalStorageKey);
     this.contacts = JSON.parse(data);
     return this.contacts;
@@ -37,7 +33,6 @@ export class ContactService {
 
 
   public addNewContactLocal() {
-    console.log('addFunction contacService Contacts= ' + this.contacts);
     let returnValue = this.dialogService.contactDialog();
     let nextId = 0;
     let lastId = this.contacts.map(function (c) {
@@ -73,7 +68,6 @@ export class ContactService {
   }
 
   public deleteContactLocal(contact: Contact) {
-    console.log('This contact will be erased= ' + contact.id);
     let editList: Contact[] = [];
     for (let i = 0; i < this.contacts.length; i++) {
       if (this.contacts[i].id != contact.id) {
@@ -86,7 +80,6 @@ export class ContactService {
 
 
   private saveContactsToLocalStorage() {
-
     localStorage.setItem(this.contactLocalStorageKey, JSON.stringify(this.contacts));
   }
 

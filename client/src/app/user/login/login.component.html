@@ -1,0 +1,19 @@
+<div>
+  <h1>Welcome to contacts app pages</h1>
+  <p>Please sing in</p>
+</div>
+<div md-dialog-content>
+  <md-input-container floatPlaceholder="auto">
+    <input mdInput [(ngModel)]="account" type="text" required
+           placeholder="Account">
+  </md-input-container>
+  <md-input-container floatPlaceholder="auto">
+    <input mdInput [(ngModel)]="password" type="password" required
+           placeholder="Password">
+  </md-input-container>
+
+  <div class="contact-dialog-action">
+    <button class="btnSignIn" md-raised-button (click)="openContactsPage()" >Log in</button>
+  </div>
+
+</div>

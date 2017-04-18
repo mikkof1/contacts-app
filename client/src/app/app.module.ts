@@ -17,12 +17,17 @@ import {ContactDialogComponent} from './contact/Dialogs/contact-dialog/contact-d
 import { MapDialogComponent } from './map/map-dialog/map-dialog.component';
 import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
 import { ContactsComponent } from './contact/contacts.component';
+import { LoginComponent } from './user/login/login.component';
 
 const routes = [
   {
     path: '',
-    redirectTo: 'contacts',
+    redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'contacts',
@@ -38,7 +43,8 @@ const routes = [
     ContactDialogComponent,
     MapDialogComponent,
     ContactAddressPipe,
-    ContactsComponent
+    ContactsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
