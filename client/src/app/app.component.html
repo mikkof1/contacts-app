@@ -1,3 +1,15 @@
-tähän menu
+<md-sidenav-container>
+  <md-sidenav #sidenav class="example-sidenav" [mode]="sidenavMode">
+    Jolly good!
+  </md-sidenav>
+<md-toolbar>
+  <button md-icon-button (click)="sidenav.toggle()">
+    <md-icon>menu</md-icon>
+  </button>
+  <span>Title</span>
+</md-toolbar>
+
+
 <router-outlet></router-outlet>
 
+</md-sidenav-container>

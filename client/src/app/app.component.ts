@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +7,18 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
 
+  sidenavMode;
 
   constructor() {
 
   }
 
-
+  @HostListener('window:resize', ['$event'])
+  onWindowResize(event) {
+    console.log('rezizeeeee: '+ this.sidenavMode);
+    let width = event ? event.target.innerWidth : window.innerWidth;
+    this.sidenavMode = width >= 600 ? 'side' : 'over';
+  }
 
 
 }
