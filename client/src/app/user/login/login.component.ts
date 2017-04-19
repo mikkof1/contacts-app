@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   openContactsPage(){
     if(this.account&&this.password){
-      this.router.navigate(['/contacts'])
+      this.router.navigate(['contacts'])
     }
 
   }

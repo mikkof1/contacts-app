@@ -1,19 +1,31 @@
-<div>
-  <h1>Welcome to contacts app pages</h1>
-  <p>Please sing in</p>
-</div>
-<div md-dialog-content>
-  <md-input-container floatPlaceholder="auto">
-    <input mdInput [(ngModel)]="account" type="text" required
-           placeholder="Account">
-  </md-input-container>
-  <md-input-container floatPlaceholder="auto">
-    <input mdInput [(ngModel)]="password" type="password" required
-           placeholder="Password">
-  </md-input-container>
+<div fxLayout="column" fxLayoutAlign="center center">
+  <md-card class="loginCard">
 
-  <div class="contact-dialog-action">
-    <button class="btnSignIn" md-raised-button (click)="openContactsPage()" >Log in</button>
-  </div>
+      <md-card-title id="loginTitle">Contacts app</md-card-title>
 
+
+    <img class="cardImg" md-card-image src="assets/images/google-material-design-wallpaper-2.jpg">
+
+    <div md-dialog-content>
+      <md-icon class="md-36" class="cardIcon" >account_circle</md-icon>
+      <md-input-container floatPlaceholder="auto">
+
+        <input mdInput [(ngModel)]="account" type="text" required
+               placeholder="Username">
+      </md-input-container>
+      <br>
+      <md-icon class="md-36" class="cardIcon">lock</md-icon>
+      <md-input-container floatPlaceholder="auto">
+        <input mdInput [(ngModel)]="password" type="password" required
+               placeholder="Password">
+      </md-input-container>
+
+      <div class="contact-dialog-action">
+        <button class="btnSignIn" [disabled]="!account || !password" md-raised-button (click)="openContactsPage()">Log
+          in
+        </button>
+      </div>
+
+    </div>
+  </md-card>
 </div>
