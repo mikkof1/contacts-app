@@ -2,22 +2,25 @@
 .loginCard {
   width: 400px;
   text-align: center;
-  background-color: lightgoldenrodyellow;
+
 }
 
 #loginTitle {
   float: left;
-}
-
-.cardImg {
-  max-width: 380px;
-  max-height: 250px;
-  width: auto;
-  height: auto;
+  position: absolute;
+  top: 220px;
+  font-size: 36px;
+  color: white;
 }
 
 .cardIcon {
   font-size: 36px;
-  padding-right: 10px;
+  padding-right: 28px;
+
   color: navy;
+
+}
+
+.btnSignIn {
+  margin-top: 18px;
 }
