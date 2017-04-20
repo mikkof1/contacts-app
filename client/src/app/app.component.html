@@ -1,15 +1,18 @@
 <md-sidenav-container>
-  <md-sidenav #sidenav class="example-sidenav" [mode]="sidenavMode">
-    Jolly good!
+  <md-sidenav #sidenav class="contactSidenav" [mode]="sidenavMode" [opened]="sidenavMode == 'side'">
+    <button md-icon-button (click)="sidenav.toggle()">
+      <md-icon>home</md-icon>
+      <span>Home</span>
+    </button>
   </md-sidenav>
 <md-toolbar>
   <button md-icon-button (click)="sidenav.toggle()">
     <md-icon>menu</md-icon>
   </button>
-  <span>Title</span>
+  <span>Menu</span>
 </md-toolbar>
-
+<div class="contactBody">
 
 <router-outlet></router-outlet>
-
+  </div>
 </md-sidenav-container>

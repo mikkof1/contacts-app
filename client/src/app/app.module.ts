@@ -18,6 +18,8 @@ import { MapDialogComponent } from './map/map-dialog/map-dialog.component';
 import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
 import { ContactsComponent } from './contact/contacts.component';
 import { LoginComponent } from './user/login/login.component';
+import {ContactApiStorageService}from './contact/services/contact-api-storage.service';
+import {ContactLocalStorageService}from './contact/services/contact-local-storage.service';
 
 const routes = [
   {
@@ -55,7 +57,7 @@ const routes = [
     FlexLayoutModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ContactService, DialogService, ApiContactService],
+  providers: [ContactService, DialogService, ApiContactService, ContactApiStorageService,ContactLocalStorageService],
   bootstrap: [AppComponent],
   entryComponents: [ContactDialogComponent, MapDialogComponent]
 })

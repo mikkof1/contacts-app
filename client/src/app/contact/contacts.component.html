@@ -1,10 +1,11 @@
 <h1>{{title}}</h1>
 
-<app-contact-list [contacts]="contactsList" (removeContact)="deleteContact($event)"
-                  (editContact)="editContact($event)"
+<app-contact-list [contacts]="contactsList"
+                  (removeContact)="deleteContact($event)"
+                  (editContact)="openDialog($event)"
                   (showContactOnMap)="showMap($event)">
 </app-contact-list>
 
-<button id="btnAdd" md-fab (click)="addNewContact()">
+<button id="btnAdd" md-fab (click)="openDialog()">
   <md-icon>add</md-icon>
 </button>
