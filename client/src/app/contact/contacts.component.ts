@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ContactService} from "./services/contact.service";
 import {DialogService} from "./services/dialog.service";
 import {Contact} from "./contact";
+import {environment} from "../../environments/environment";
+
 
 @Component({
   selector: 'app-contacts',
@@ -19,6 +21,8 @@ export class ContactsComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    console.log('enviroment name: '+environment.envName);
   }
 
   reloadContacts() {
