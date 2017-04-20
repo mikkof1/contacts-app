@@ -1,5 +1,4 @@
-import { Injectable } from '@angular/core';
-import {DialogService} from "./dialog.service";
+import {Injectable} from '@angular/core';
 import {Contact} from "../contact";
 
 @Injectable()
@@ -8,54 +7,47 @@ export class ContactLocalStorageService {
   private testListIsNeeded: boolean = true;
 
   private contacts: Contact[];
-  private contact: Contact;
   private contactLocalStorageKey: string = 'ca-storageKey';
 
-  constructor(private dialogService: DialogService) { }
+  constructor() {
+    if (!localStorage.getItem(this.contactLocalStorageKey)) {
+      localStorage.setItem(this.contactLocalStorageKey, JSON.stringify([]));
+      if (this.testListIsNeeded) {
+        this.mekeTestList();
+        this.saveContactsToLocalStorage();
+      }
+    }
+  }
 
-  public findContactsLocal(): Contact[] {
+  public findContacts(): Contact[] {
     let data = localStorage.getItem(this.contactLocalStorageKey);
     this.contacts = JSON.parse(data);
     return this.contacts;
   }
 
-
-  public addNewContactLocal() {
-    let returnValue = this.dialogService.contactDialog();
+  public addNewContact(contact: Contact) {
     let nextId = 0;
-    let lastId = this.contacts.map(function (c) {
-      if (c.id > nextId) {
-        nextId = c.id
+    let lastId = this.contacts.map(con => {
+      if (con.id > nextId) {
+        nextId = con.id
       }
     });
     nextId++;
 
-    returnValue.subscribe(result => {
-      if (!result) {
-        return;
-      }
-      let newContact = result;
-      newContact.id = nextId;
-      this.contacts.push(newContact);
-      this.saveContactsToLocalStorage();
-    });
-
+    contact.id = nextId;
+    this.contacts.push(contact);
+    this.saveContactsToLocalStorage();
+    return this.contacts;
   }
 
-  public editContactLocal(contact: Contact) {
-    let returnValue = this.dialogService.contactDialog(contact);
+  public editContact(contact: Contact) {
     let index = this.contacts.findIndex(c => c.id == contact.id);
-    returnValue.subscribe(result => {
-      if (!result) {
-        return;
-      }
-      let editedContact = result;
-      this.contacts[index] = editedContact;
-      this.saveContactsToLocalStorage();
-    });
+    this.contacts[index] = contact;
+    this.saveContactsToLocalStorage();
+    return this.contacts;
   }
 
-  public deleteContactLocal(contact: Contact) {
+  public deleteContact(contact: Contact) {
     let editList: Contact[] = [];
     for (let i = 0; i < this.contacts.length; i++) {
       if (this.contacts[i].id != contact.id) {
@@ -64,8 +56,8 @@ export class ContactLocalStorageService {
     }
     this.contacts = editList;
     this.saveContactsToLocalStorage();
+    return this.contacts;
   }
-
 
   private saveContactsToLocalStorage() {
     localStorage.setItem(this.contactLocalStorageKey, JSON.stringify(this.contacts));
@@ -79,7 +71,6 @@ export class ContactLocalStorageService {
       new Contact(8, 'Aku', 'Ankka', '456-789789', 'Paratiisitie 13', 'Ankkalinna')
     ];
   }
-
 
 
 }
