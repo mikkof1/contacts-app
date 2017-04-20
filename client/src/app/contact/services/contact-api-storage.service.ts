@@ -23,7 +23,7 @@ export class ContactApiStorageService {
   }
 
   deleteContact(contact: Contact) {
-    return this.http.delete(this.url + '?id=' + contact.id);
+    return this.http.delete(this.url + '/' + contact.id);
   }
 
 }

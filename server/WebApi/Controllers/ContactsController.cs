@@ -32,7 +32,7 @@ namespace WebApi.Controllers
             return _contactsHandler.AddNewContact(contact);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public bool DeleteContact(int id)
         {
             return _contactsHandler.DeleteContact(id);
