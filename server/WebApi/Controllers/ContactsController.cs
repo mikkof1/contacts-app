@@ -33,9 +33,9 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete]
-        public bool DeleteContact([FromBody] Contact contact)
+        public bool DeleteContact(int id)
         {
-            return _contactsHandler.DeleteContact(contact);
+            return _contactsHandler.DeleteContact(id);
         }
 
         [HttpPut]

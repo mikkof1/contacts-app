@@ -39,28 +39,32 @@ namespace WebApi.Services
 
         public bool EditContact(Contact contact)
         {
-            if (contact.id < 1)
+            try
+            {
+                int index = _contactsList.FindIndex(c => c.id == contact.id);
+                _contactsList[index] = contact;
+                SaveDataJson();
+                return true;
+            }
+            catch
             {
                 return false;
             }
-
-            int index = _contactsList.FindIndex(c => c.id == contact.id);
-            _contactsList[index] = contact;
-            SaveDataJson();
-            return true;
         }
 
-        public bool DeleteContact(Contact contact)
+        public bool DeleteContact(int id)
         {
-            if (contact.id < 0)
+            try
+            {
+                int index = _contactsList.FindIndex(c => c.id == id);
+                _contactsList.RemoveAt(index);
+                SaveDataJson();
+                return true;
+            }
+            catch
             {
                 return false;
             }
-
-            int index = _contactsList.FindIndex(c => c.id == contact.id);
-            _contactsList.RemoveAt(index);
-            SaveDataJson();
-            return true;
         }
 
         private void ReadListJson()
