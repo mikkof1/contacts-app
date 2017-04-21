@@ -10,22 +10,34 @@ export class ContactService {
   }
 
   public findAllContacts() {
-   // return this.apiService.findContacts();
+    return this.apiService.findContacts();
+  }
+
+  public findAllContactsLocal() {
     return this.localStorage.findContacts();
   }
 
   public addNewContact(contact: Contact) {
-  //  return this.apiService.addNewContact(contact);
+    return this.apiService.addNewContact(contact);
+  }
+
+  public addNewContactLocal(contact: Contact) {
     return this.localStorage.addNewContact(contact);
   }
 
   public editContact(contact: Contact) {
-  //  return this.apiService.editContact(contact);
+    return this.apiService.editContact(contact)
+  };
+
+  public editContactLocal(contact: Contact) {
     return this.localStorage.editContact(contact);
   }
 
   public deleteContact(contact: Contact) {
-  //  return this.apiService.deleteContact(contact);
+    return this.apiService.deleteContact(contact);
+  }
+
+  public deleteContactLocal(contact: Contact) {
     return this.localStorage.deleteContact(contact);
   }
 

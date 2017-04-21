@@ -22,27 +22,51 @@ export class ContactsComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log('enviroment name: '+environment.envName);
+    console.log('enviroment name: ' + environment.envName);
   }
 
   reloadContacts() {
-    //  this.contactService.findAllContacts().subscribe(data => this.contactsList = data);
-    this.contactsList = this.contactService.findAllContacts();
+    if (environment.envName == 'api') {
+      this.contactService.findAllContacts().subscribe(data => this.contactsList = data);
+    }
+    else {
+      this.contactsList = this.contactService.findAllContactsLocal();
+    }
+
   }
 
   addNewContact(contact: Contact) {
-    //   this.contactService.addNewContact(contact).subscribe(data=>{this.reloadContacts();});
-    this.contactsList = this.contactService.addNewContact(contact);
+    if (environment.envName == 'api') {
+
+      this.contactService.addNewContact(contact).subscribe(data => {
+        this.reloadContacts();
+      });
+    }
+    else {
+      this.contactsList = this.contactService.addNewContactLocal(contact);
+    }
   }
 
   editContact(contact: Contact) {
-    //  this.contactService.editContact(contact).subscribe(data=>{this.reloadContacts();});
-    this.contactsList = this.contactService.editContact(contact);
+    if (environment.envName == 'api') {
+      this.contactService.editContact(contact).subscribe(data => {
+        this.reloadContacts();
+      });
+    }
+    else {
+      this.contactsList = this.contactService.editContactLocal(contact);
+    }
   }
 
   deleteContact(contact: Contact) {
-    //  this.contactService.deleteContact(contact).subscribe(data=>{this.reloadContacts();});
-    this.contactsList = this.contactService.deleteContact(contact);
+    if (environment.envName == 'api') {
+      this.contactService.deleteContact(contact).subscribe(data => {
+        this.reloadContacts();
+      });
+    }
+    else {
+      this.contactsList = this.contactService.deleteContactLocal(contact);
+    }
   }
 
   openDialog(contact?: Contact) {
