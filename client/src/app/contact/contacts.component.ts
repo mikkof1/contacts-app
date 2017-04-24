@@ -10,6 +10,7 @@ import {environment} from "../../environments/environment";
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.css']
 })
+
 export class ContactsComponent implements OnInit {
 
   title = 'Contact list';
@@ -59,13 +60,17 @@ export class ContactsComponent implements OnInit {
   }
 
   deleteContact(contact: Contact) {
-    if (environment.envName == 'api') {
-      this.contactService.deleteContact(contact).subscribe(data => {
-        this.reloadContacts();
-      });
-    }
-    else {
-      this.contactsList = this.contactService.deleteContactLocal(contact);
+    let question = confirm('Do you realy want to delete this contact: ' + contact.firstName + ' ' + contact.lastName);
+
+    if (question) {
+      if (environment.envName == 'api') {
+        this.contactService.deleteContact(contact).subscribe(data => {
+          this.reloadContacts();
+        });
+      }
+      else {
+        this.contactsList = this.contactService.deleteContactLocal(contact);
+      }
     }
   }
 

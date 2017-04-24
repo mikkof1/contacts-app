@@ -1,8 +1,13 @@
 <md-sidenav-container>
   <md-sidenav #sidenav class="contactSidenav" [mode]="sidenavMode" [opened]="sidenavMode == 'side'">
-    <button md-icon-button (click)="sidenav.toggle()">
+    <button md-icon-button (click)="navigateHome(sidenav)" >
       <md-icon>home</md-icon>
       <span>Home</span>
+    </button>
+    <br>
+    <button md-icon-button (click)="navigateContacts(sidenav)" >
+      <md-icon>mood</md-icon>
+      <span>Contacts</span>
     </button>
   </md-sidenav>
 <md-toolbar>
