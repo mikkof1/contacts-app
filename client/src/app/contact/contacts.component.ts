@@ -13,8 +13,6 @@ import {environment} from "../../environments/environment";
 
 export class ContactsComponent implements OnInit {
 
-  title = 'Contact list';
-
   contactsList: Contact[];
 
   constructor(private contactService: ContactService, private dialogService: DialogService) {

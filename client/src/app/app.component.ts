@@ -11,14 +11,13 @@ export class AppComponent {
   sidenavMode: string;
 
   constructor(private router: Router) {
-this.onWindowResize(null);
+    this.onWindowResize(null);
   }
 
   @HostListener('window:resize', ['$event'])
   onWindowResize(event) {
     let width = event ? event.target.innerWidth : window.innerWidth;
     this.sidenavMode = width >= 600 ? 'side' : 'over';
-    console.log('mod: '+this.sidenavMode);
   }
 
   navigateHome(sideNav) {

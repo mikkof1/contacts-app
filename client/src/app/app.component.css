@@ -1,12 +1,48 @@
 
-.menuTitle{
-  font-size: 24px;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-.contactSidenav{
-  width: 200px;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-.contactBody{
+.toolbar-menu {
+
 
 }
+
+.router-body{
+  overflow: auto;
+  height: 100%;
+}
+
+.sidenav-container{
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.contactSidenav {
+  background-image: url("../assets/images/google-material-design-wallpaper-2.jpg");
+  background-size: 220px;
+  background-repeat: no-repeat;
+  width: 220px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.sidenav-login {
+  height: 140px;
+  color: white;
+}
+
+.login-icon {
+  padding-top: 12px;
+  font-size: 64px;
+}
+
+.login-name {
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.login-mail {
+  padding-left: 10px;
+  font-size: 12px;
+}
+
