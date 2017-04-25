@@ -2,8 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ContactService} from "./services/contact.service";
 import {DialogService} from "./services/dialog.service";
 import {Contact} from "./contact";
-import {environment} from "../../environments/environment";
-
 
 @Component({
   selector: 'app-contacts',
@@ -21,54 +19,35 @@ export class ContactsComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log('enviroment name: ' + environment.envName);
   }
 
   reloadContacts() {
-    if (environment.envName == 'api') {
-      this.contactService.findAllContacts().subscribe(data => this.contactsList = data);
-    }
-    else {
-      this.contactsList = this.contactService.findAllContactsLocal();
-    }
-
+    this.contactService.findAllContacts().subscribe(data => {
+      console.log('data: ' + data);
+      this.contactsList = data
+    });
   }
 
   addNewContact(contact: Contact) {
-    if (environment.envName == 'api') {
-
-      this.contactService.addNewContact(contact).subscribe(data => {
-        this.reloadContacts();
-      });
-    }
-    else {
-      this.contactsList = this.contactService.addNewContactLocal(contact);
-    }
+    this.contactService.addNewContact(contact).subscribe(data => {
+      this.reloadContacts();
+    });
   }
 
   editContact(contact: Contact) {
-    if (environment.envName == 'api') {
-      this.contactService.editContact(contact).subscribe(data => {
-        this.reloadContacts();
-      });
-    }
-    else {
-      this.contactsList = this.contactService.editContactLocal(contact);
-    }
+    this.contactService.editContact(contact).subscribe(data => {
+      this.reloadContacts();
+    });
   }
 
   deleteContact(contact: Contact) {
-    let question = confirm('Do you realy want to delete this contact: ' + contact.firstName + ' ' + contact.lastName);
+    let question = confirm('Do you realy want to delete this contact: '
+      + contact.firstName + ' ' + contact.lastName);
 
     if (question) {
-      if (environment.envName == 'api') {
-        this.contactService.deleteContact(contact).subscribe(data => {
-          this.reloadContacts();
-        });
-      }
-      else {
-        this.contactsList = this.contactService.deleteContactLocal(contact);
-      }
+      this.contactService.deleteContact(contact).subscribe(data => {
+        this.reloadContacts();
+      });
     }
   }
 
