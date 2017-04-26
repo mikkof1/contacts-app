@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Contact} from "../contact";
 import {Observable} from "rxjs/Observable";
+import * as _ from 'lodash';
 
 @Injectable()
 export class ContactLocalStorageService {
@@ -27,12 +28,8 @@ export class ContactLocalStorageService {
   }
 
   public addNewContact(contact: Contact) {
-    let nextId = 0;
-    let lastId = this.contacts.map(con => {
-      if (con.id > nextId) {
-        nextId = con.id
-      }
-    });
+
+    let nextId = _.maxBy(this.contacts, 'id').id;
     nextId++;
 
     contact.id = nextId;

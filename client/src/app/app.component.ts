@@ -1,5 +1,6 @@
-import {Component, HostListener} from '@angular/core';
-import {Router} from "@angular/router";
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Router, NavigationEnd} from "@angular/router";
+import {MdSidenav} from "@angular/material";
 
 @Component({
   selector: 'app-root',
@@ -9,15 +10,32 @@ import {Router} from "@angular/router";
 export class AppComponent {
 
   sidenavMode: string;
+  toolbarDisabled: boolean;
 
-  constructor(private router: Router) {
-    this.onWindowResize(null);
-  }
+  @ViewChild('sidenav') sidenav: MdSidenav;
 
   @HostListener('window:resize', ['$event'])
   onWindowResize(event) {
     let width = event ? event.target.innerWidth : window.innerWidth;
     this.sidenavMode = width >= 600 ? 'side' : 'over';
+  }
+
+  constructor(private router: Router) {
+    this.onWindowResize(null);
+  }
+
+  ngOnInit() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        if (event.urlAfterRedirects == '/login' || event.urlAfterRedirects == '/') {
+          this.toolbarDisabled = true;
+        }
+        else {
+          this.toolbarDisabled = false;
+          this.onWindowResize(null);
+        }
+      }
+    });
   }
 
   navigateHome(sideNav) {
@@ -32,6 +50,10 @@ export class AppComponent {
     if (this.sidenavMode == 'over') {
       sideNav.toggle();
     }
+  }
+
+  toggleSideNav(){
+    this.sidenav.toggle();
   }
 
 }

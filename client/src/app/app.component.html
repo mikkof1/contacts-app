@@ -1,5 +1,5 @@
 <md-sidenav-container class="sidenav-container">
-  <md-sidenav #sidenav class="contactSidenav" [mode]="sidenavMode" [opened]="sidenavMode == 'side'">
+  <md-sidenav *ngIf="!toolbarDisabled" #sidenav class="contactSidenav" [mode]="sidenavMode" [opened]="sidenavMode == 'side'">
     <div class="sidenav-login">
       <md-icon class="md-48, login-icon">account_circle</md-icon>
       <div class="login-name">User name</div>
@@ -15,8 +15,8 @@
       <span>Contacts</span>
     </button>
   </md-sidenav>
-  <md-toolbar class="toolbar-menu, mat-elevation-z5">
-    <button md-icon-button (click)="sidenav.toggle()">
+  <md-toolbar *ngIf="!toolbarDisabled" class="toolbar-menu, mat-elevation-z5">
+    <button md-icon-button (click)="toggleSideNav()">
       <md-icon>menu</md-icon>
     </button>
     <span>Contacts app</span>
