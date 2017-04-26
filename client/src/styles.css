@@ -24,6 +24,7 @@
   -webkit-font-smoothing: antialiased;
 }
 
-body{
+body, html{
   background-color: #fafafa;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

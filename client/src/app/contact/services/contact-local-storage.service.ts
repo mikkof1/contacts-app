@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 @Injectable()
 export class ContactLocalStorageService {
 
-  private testListIsNeeded: boolean = true;
+  private testListIsNeeded: boolean = false;
 
   private contacts: Contact[];
   private contactLocalStorageKey: string = 'ca-storageKey';
@@ -28,11 +28,13 @@ export class ContactLocalStorageService {
   }
 
   public addNewContact(contact: Contact) {
-
-    let nextId = _.maxBy(this.contacts, 'id').id;
-    nextId++;
-
+    let nextId = 100;
+    if (this.contacts.length > 0) {
+      nextId = _.maxBy(this.contacts, 'id').id;
+      nextId++;
+    }
     contact.id = nextId;
+
     this.contacts.push(contact);
     this.saveContactsToLocalStorage();
     return Observable.of(this.contacts);
