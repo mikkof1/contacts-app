@@ -5,6 +5,7 @@
                   (showContactOnMap)="showMap($event)">
 </app-contact-list>
 </div>
+
 <div *ngIf="!contactsList || !contactsList.length" class="no-contacts-div" fxLayout="column" fxFlexAlign="center center" fxFlexFill>
   <md-icon class="no-contacts-icon">account_circle</md-icon>
   <p class="no-contacts-text">  No contacts </p>
