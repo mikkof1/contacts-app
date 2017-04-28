@@ -1,19 +1,24 @@
-
-.toolbar-menu {
-  position: fixed;
-
+.toolbar-and-content {
+  position: relative;
+  height: 90vh;
+  min-height: 90vh;
 }
 
-.router-body{
-  overflow: auto;
-  height: 100%;
+.toolbar {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .3);
+  z-index: 3;
 }
 
-.sidenav-container{
-  margin: 0;
+.router-body {
+  overflow-y: scroll;
+}
+
+.sidenav-container {
+  position: relative;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  max-width: 100%;
+  height: 95vh;
+  min-height: 95vh;
 }
 
 .contactSidenav {

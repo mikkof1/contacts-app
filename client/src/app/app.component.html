@@ -1,34 +1,37 @@
-<md-sidenav-container class="sidenav-container">
-  <md-sidenav *ngIf="!toolbarDisabled" #sidenav class="contactSidenav" [mode]="sidenavMode" [opened]="sidenavMode == 'side'">
-    <div class="sidenav-login">
-      <md-icon class="md-48, login-icon">account_circle</md-icon>
-      <div class="login-name">User name</div>
-      <div class="login-mail">User email</div>
+<div>
+
+  <md-sidenav-container class="sidenav-container">
+    <md-sidenav *ngIf="!toolbarDisabled" #sidenav class="contactSidenav"
+                [mode]="sidenavMode"
+                [opened]="sidenavMode == 'side'">
+      <div class="sidenav-login">
+        <md-icon class="md-48, login-icon">account_circle</md-icon>
+        <div class="login-name">User name</div>
+        <div class="login-mail">User email</div>
+      </div>
+      <button md-icon-button (click)="navigateHome(sidenav)">
+        <md-icon>home</md-icon>
+        <span>Home</span>
+      </button>
+      <br>
+      <button md-icon-button (click)="navigateContacts(sidenav)">
+        <md-icon>mood</md-icon>
+        <span>Contacts</span>
+      </button>
+    </md-sidenav>
+
+    <div class="toolbar-and-content" fxLayout="column" fxLayoutAlign="start stretch">
+      <md-toolbar *ngIf="!toolbarDisabled" class="toolbar ">
+        <button md-icon-button (click)="toggleSideNav()">
+          <md-icon>menu</md-icon>
+        </button>
+        <span>Contacts app</span>
+      </md-toolbar>
+
+      <div class="router-body">
+        <router-outlet></router-outlet>
+      </div>
     </div>
-    <button md-icon-button (click)="navigateHome(sidenav)">
-      <md-icon>home</md-icon>
-      <span>Home</span>
-    </button>
-    <br>
-    <button md-icon-button (click)="navigateContacts(sidenav)">
-      <md-icon>mood</md-icon>
-      <span>Contacts</span>
-    </button>
-  </md-sidenav>
-  <md-toolbar *ngIf="!toolbarDisabled" class="toolbar-menu, mat-elevation-z5">
-    <button md-icon-button (click)="toggleSideNav()">
-      <md-icon>menu</md-icon>
-    </button>
-    <span>Contacts app</span>
-  </md-toolbar>
-<br>
-  <div class="router-body">
 
-    <router-outlet></router-outlet>
-
-  </div>
-
-</md-sidenav-container>
-
-
-
+  </md-sidenav-container>
+</div>
