@@ -604,7 +604,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, "\r\n.toolbar-menu {\r\n  position: fixed;\r\n\r\n}\r\n\r\n.router-body{\r\n  overflow: auto;\r\n  height: 100%;\r\n}\r\n\r\n.sidenav-container{\r\n  margin: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  overflow: hidden;\r\n}\r\n\r\n.contactSidenav {\r\n  background-image: url(" + __webpack_require__(280) + ");\r\n  background-size: 220px;\r\n  background-repeat: no-repeat;\r\n  width: 220px;\r\n  font-family: Roboto, \"Helvetica Neue\", sans-serif;\r\n}\r\n\r\n.sidenav-login {\r\n  height: 140px;\r\n  color: white;\r\n}\r\n\r\n.login-icon {\r\n  padding-top: 12px;\r\n  font-size: 64px;\r\n}\r\n\r\n.login-name {\r\n  padding-top: 10px;\r\n  padding-left: 10px;\r\n  font-size: 16px;\r\n  font-weight: bold;\r\n}\r\n\r\n.login-mail {\r\n  padding-left: 10px;\r\n  font-size: 12px;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".toolbar-and-content {\r\n  position: relative;\r\n  height: 97vh;\r\n  min-height: 97vh;\r\n}\r\n\r\n.toolbar {\r\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .3);\r\n  z-index: 3;\r\n}\r\n\r\n.router-body {\r\n  overflow-y: auto;\r\n}\r\n\r\n.sidenav-container {\r\n  position: relative;\r\n  width: 100%;\r\n  max-width: 100%;\r\n  height: 97vh;\r\n  min-height: 97vh;\r\n}\r\n\r\n.contactSidenav {\r\n  background-image: url(" + __webpack_require__(280) + ");\r\n  background-size: 190px;\r\n  background-repeat: no-repeat;\r\n  width: 190px;\r\n  font-family: Roboto, \"Helvetica Neue\", sans-serif;\r\n}\r\n\r\n.sidenav-login {\r\n  height: 140px;\r\n  color: white;\r\n}\r\n\r\n.login-icon {\r\n  padding-top: 3px;\r\n  font-size: 64px;\r\n}\r\n\r\n.login-name {\r\n  padding-top: 8px;\r\n  padding-left: 10px;\r\n  font-size: 16px;\r\n  font-weight: bold;\r\n}\r\n\r\n.login-mail {\r\n  padding-left: 10px;\r\n  font-size: 12px;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -640,7 +640,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, "#card {\r\n  width: 300px;\r\n  margin-bottom: 20px;\r\n  background-color: mintcream;\r\n}\r\n\r\n.contact-item-header {\r\n  padding: 2px 0 0 2px;\r\n  border-radius: 3px 3px 0 0;\r\ncolor: white;\r\n  background-color: #7986cb;\r\n}\r\n\r\n.contact-item-header md-icon {\r\n  font-size: 42px;\r\n}\r\n\r\n#btnMap {\r\n  float: right;\r\n}\r\n\r\n.contact-item-table tr td{\r\n  padding: 2px 10px 2px 0px;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, "#card {\r\n  width: 250px;\r\n  margin-bottom: 20px;\r\n  background-color: mintcream;\r\n}\r\n\r\n.contact-item-header {\r\n  padding: 2px 0 0 2px;\r\n  border-radius: 3px 3px 0 0;\r\ncolor: white;\r\n  background-color: #7986cb;\r\n}\r\n\r\n.contact-item-header md-icon {\r\n  font-size: 42px;\r\n}\r\n\r\n#btnMap {\r\n  float: right;\r\n}\r\n\r\n.contact-item-table tr td{\r\n  padding: 2px 10px 2px 0px;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -658,7 +658,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".contacts-items{\r\n  margin-top: 10px;\r\n}\r\n", ""]);
 
 // exports
 
@@ -676,7 +676,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, ".contacts-list {\r\n  width: 100%;\r\n\r\n}\r\n\r\n.no-contacts-div {\r\n  width: 100%;\r\n  text-align: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: lightgray;\r\n}\r\n\r\n.no-contacts-icon {\r\n  font-size: 250px;\r\n  height: 250px;\r\n  width: 250px;\r\n}\r\n\r\n.no-contacts-text {\r\n  font-size: 26px;\r\n}\r\n\r\n#btnAdd {\r\n  bottom: 30px;\r\n  left: calc(50% + 200px);\r\n  position: absolute;\r\n}\r\n", ""]);
+exports.push([module.i, ".contacts-list {\r\n  width: 100%;\r\n}\r\n\r\n.no-contacts-div {\r\n  width: 100%;\r\n  text-align: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: lightgray;\r\n}\r\n\r\n.no-contacts-icon {\r\n  font-size: 250px;\r\n  height: 250px;\r\n  width: 250px;\r\n}\r\n\r\n.no-contacts-text {\r\n  font-size: 26px;\r\n}\r\n\r\n#btnAdd {\r\n  bottom: 30px;\r\n  left: calc(50% + 140px);\r\n  position: absolute;\r\n}\r\n", ""]);
 
 // exports
 
@@ -712,7 +712,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, "\r\n.loginCard {\r\n  width: 400px;\r\n  text-align: center;\r\n\r\n}\r\n\r\n#loginTitle {\r\n  float: left;\r\n  position: absolute;\r\n  top: 220px;\r\n  font-size: 36px;\r\n  color: white;\r\n}\r\n\r\n.cardIcon {\r\n  font-size: 36px;\r\n  padding-right: 28px;\r\n\r\n  color: navy;\r\n\r\n}\r\n\r\n.btnSignIn {\r\n  margin-top: 18px;\r\n}\r\n", ""]);
+exports.push([module.i, "\r\n.loginCard {\r\n  width: 350px;\r\n  text-align: center;\r\n}\r\n\r\n#loginTitle {\r\n  float: left;\r\n  position: absolute;\r\n  top: 190px;\r\n  font-size: 36px;\r\n  color: white;\r\n}\r\n\r\n.cardIcon {\r\n  font-size: 36px;\r\n  padding-right: 28px;\r\n  color: navy;\r\n}\r\n\r\n.btnSignIn {\r\n  margin-top: 18px;\r\n}\r\n\r\n.router-body{\r\n  overflow-y: hidden !important;\r\n}\r\n", ""]);
 
 // exports
 
@@ -725,7 +725,7 @@ module.exports = module.exports.toString();
 /***/ 225:
 /***/ (function(module, exports) {
 
-module.exports = "<md-sidenav-container class=\"sidenav-container\">\n  <md-sidenav *ngIf=\"!toolbarDisabled\" #sidenav class=\"contactSidenav\" [mode]=\"sidenavMode\" [opened]=\"sidenavMode == 'side'\">\n    <div class=\"sidenav-login\">\n      <md-icon class=\"md-48, login-icon\">account_circle</md-icon>\n      <div class=\"login-name\">User name</div>\n      <div class=\"login-mail\">User email</div>\n    </div>\n    <button md-icon-button (click)=\"navigateHome(sidenav)\">\n      <md-icon>home</md-icon>\n      <span>Home</span>\n    </button>\n    <br>\n    <button md-icon-button (click)=\"navigateContacts(sidenav)\">\n      <md-icon>mood</md-icon>\n      <span>Contacts</span>\n    </button>\n  </md-sidenav>\n  <md-toolbar *ngIf=\"!toolbarDisabled\" class=\"toolbar-menu, mat-elevation-z5\">\n    <button md-icon-button (click)=\"toggleSideNav()\">\n      <md-icon>menu</md-icon>\n    </button>\n    <span>Contacts app</span>\n  </md-toolbar>\n<br>\n  <div class=\"router-body\">\n\n    <router-outlet></router-outlet>\n\n  </div>\n\n</md-sidenav-container>\n\n\n\n"
+module.exports = "<div>\n\n  <md-sidenav-container class=\"sidenav-container\">\n    <md-sidenav *ngIf=\"!toolbarDisabled\" #sidenav class=\"contactSidenav\"\n                [mode]=\"sidenavMode\"\n                [opened]=\"sidenavMode == 'side'\">\n      <div class=\"sidenav-login\">\n        <md-icon class=\"md-48, login-icon\">account_circle</md-icon>\n        <div class=\"login-name\">User name</div>\n        <div class=\"login-mail\">User email</div>\n      </div>\n      <button md-icon-button (click)=\"navigateHome(sidenav)\">\n        <md-icon>home</md-icon>\n        <span>Home</span>\n      </button>\n      <br>\n      <button md-icon-button (click)=\"navigateContacts(sidenav)\">\n        <md-icon>mood</md-icon>\n        <span>Contacts</span>\n      </button>\n    </md-sidenav>\n\n    <div class=\"toolbar-and-content\" fxLayout=\"column\" fxLayoutAlign=\"start stretch\">\n      <md-toolbar *ngIf=\"!toolbarDisabled\" class=\"toolbar \">\n        <button md-icon-button (click)=\"toggleSideNav()\">\n          <md-icon>menu</md-icon>\n        </button>\n        <span>Contacts app</span>\n      </md-toolbar>\n\n      <div class=\"router-body\">\n        <router-outlet></router-outlet>\n      </div>\n    </div>\n\n  </md-sidenav-container>\n</div>\n"
 
 /***/ }),
 
@@ -746,7 +746,7 @@ module.exports = "<div class=\"contact-item-card\">\n<div class=\"contact-item-h
 /***/ 228:
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column\" fxLayoutAlign=\"space-around center\" *ngFor=\"let contact of contacts\">\n\n  <app-contact-list-item [contact]=\"contact\"\n                         (remove)=\"deleteContactListItem($event)\"\n                         (edit)=\"editContactListItem($event)\"\n                         (showOnMap)=\"showMapListItem($event)\">\n  </app-contact-list-item>\n\n</div>\n\n"
+module.exports = "<div class=\"contacts-items\" fxLayout=\"column\" fxLayoutAlign=\"space-around center\" *ngFor=\"let contact of contacts\">\n\n  <app-contact-list-item [contact]=\"contact\"\n                         (remove)=\"deleteContactListItem($event)\"\n                         (edit)=\"editContactListItem($event)\"\n                         (showOnMap)=\"showMapListItem($event)\">\n  </app-contact-list-item>\n\n</div>\n\n"
 
 /***/ }),
 

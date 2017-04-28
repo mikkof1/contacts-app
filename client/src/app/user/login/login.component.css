@@ -1,14 +1,13 @@
 
 .loginCard {
-  width: 400px;
+  width: 350px;
   text-align: center;
-
 }
 
 #loginTitle {
   float: left;
   position: absolute;
-  top: 220px;
+  top: 190px;
   font-size: 36px;
   color: white;
 }
@@ -16,11 +15,13 @@
 .cardIcon {
   font-size: 36px;
   padding-right: 28px;
-
   color: navy;
-
 }
 
 .btnSignIn {
   margin-top: 18px;
+}
+
+.router-body{
+  overflow-y: hidden !important;
 }
