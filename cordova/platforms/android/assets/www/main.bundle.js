@@ -473,6 +473,7 @@ var ContactsComponent = (function () {
     };
     ContactsComponent.prototype.deleteContact = function (contact) {
         var _this = this;
+        navigator.vibrate(1000);
         var question = confirm('Do you realy want to delete this contact: '
             + contact.firstName + ' ' + contact.lastName);
         if (question) {
@@ -483,6 +484,7 @@ var ContactsComponent = (function () {
     };
     ContactsComponent.prototype.openDialog = function (contact) {
         var _this = this;
+        navigator.vibrate([400, 300, 400, 300]);
         var returnValue = this.dialogService.contactDialog(contact);
         returnValue.subscribe(function (returnContact) {
             if (!returnContact) {
@@ -577,6 +579,7 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.openContactsPage = function () {
         if (this.account && this.password) {
+            navigator.vibrate([400, 300, 400, 300]);
             this.router.navigate(['contacts']);
         }
     };
@@ -604,7 +607,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, ".toolbar-and-content {\r\n  position: relative;\r\n  height: 97vh;\r\n  min-height: 97vh;\r\n}\r\n\r\n.toolbar {\r\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .3);\r\n  z-index: 3;\r\n}\r\n\r\n.router-body {\r\n  overflow-y: auto;\r\n}\r\n\r\n.sidenav-container {\r\n  position: relative;\r\n  width: 100%;\r\n  max-width: 100%;\r\n  height: 97vh;\r\n  min-height: 97vh;\r\n}\r\n\r\n.contactSidenav {\r\n  background-image: url(" + __webpack_require__(280) + ");\r\n  background-size: 190px;\r\n  background-repeat: no-repeat;\r\n  width: 190px;\r\n  font-family: Roboto, \"Helvetica Neue\", sans-serif;\r\n}\r\n\r\n.sidenav-login {\r\n  height: 140px;\r\n  color: white;\r\n}\r\n\r\n.login-icon {\r\n  padding-top: 3px;\r\n  font-size: 64px;\r\n}\r\n\r\n.login-name {\r\n  padding-top: 8px;\r\n  padding-left: 10px;\r\n  font-size: 16px;\r\n  font-weight: bold;\r\n}\r\n\r\n.login-mail {\r\n  padding-left: 10px;\r\n  font-size: 12px;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".toolbar-and-content {\r\n  position: relative;\r\n  height: 98vh;\r\n  min-height: 97vh;\r\n}\r\n\r\n.toolbar {\r\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .3);\r\n  z-index: 3;\r\n}\r\n\r\n.router-body {\r\n  overflow-y: auto;\r\n}\r\n\r\n.sidenav-container {\r\n  position: relative;\r\n  width: 100%;\r\n  max-width: 100%;\r\n  height: 98vh;\r\n  min-height: 98vh;\r\n}\r\n\r\n.contactSidenav {\r\n  background-image: url(" + __webpack_require__(280) + ");\r\n  background-size: 190px;\r\n  background-repeat: no-repeat;\r\n  width: 190px;\r\n  font-family: Roboto, \"Helvetica Neue\", sans-serif;\r\n}\r\n\r\n.sidenav-login {\r\n  height: 140px;\r\n  color: white;\r\n}\r\n\r\n.login-icon {\r\n  padding-top: 3px;\r\n  font-size: 64px;\r\n}\r\n\r\n.login-name {\r\n  padding-top: 8px;\r\n  padding-left: 10px;\r\n  font-size: 16px;\r\n  font-weight: bold;\r\n}\r\n\r\n.login-mail {\r\n  padding-left: 10px;\r\n  font-size: 12px;\r\n}\r\n\r\n", ""]);
 
 // exports
 
