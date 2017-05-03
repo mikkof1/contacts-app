@@ -41,6 +41,7 @@ export class ContactsComponent implements OnInit {
   }
 
   deleteContact(contact: Contact) {
+    navigator.vibrate(1000);
     let question = confirm('Do you realy want to delete this contact: '
       + contact.firstName + ' ' + contact.lastName);
 
@@ -52,8 +53,8 @@ export class ContactsComponent implements OnInit {
   }
 
   openDialog(contact?: Contact) {
+    navigator.vibrate([400,300,400,300]);
     let returnValue = this.dialogService.contactDialog(contact);
-
     returnValue.subscribe(returnContact => {
       if (!returnContact) {
         return;

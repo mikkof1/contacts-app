@@ -1,5 +1,6 @@
 .contacts-list {
   width: 100%;
+  margin-bottom: 80px;
 }
 
 .no-contacts-div {
@@ -21,6 +22,6 @@
 
 #btnAdd {
   bottom: 30px;
-  left: calc(50% + 140px);
+  left: calc(50% + 100px);
   position: absolute;
 }

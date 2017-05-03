@@ -19,6 +19,7 @@ import {ContactsComponent} from './contact/contacts.component';
 import {LoginComponent} from './user/login/login.component';
 import {ContactApiStorageService}from './contact/services/contact-api-storage.service';
 import {ContactLocalStorageService}from './contact/services/contact-local-storage.service';
+import { ContactNamePipe } from './contact/pipes/contact-name.pipe';
 
 const routes = [
   {
@@ -45,7 +46,8 @@ const routes = [
     MapDialogComponent,
     ContactAddressPipe,
     ContactsComponent,
-    LoginComponent
+    LoginComponent,
+    ContactNamePipe
   ],
   imports: [
     BrowserModule,

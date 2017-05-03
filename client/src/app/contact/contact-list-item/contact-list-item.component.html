@@ -2,16 +2,11 @@
 <div class="contact-item-header"><md-icon>account_circle</md-icon></div>
 <md-card id="card" class="mat-card">
 
-<md-card-header></md-card-header>
-
   <md-card-content>
-    <md-card-title >{{contact.firstName+' '+contact.lastName}}</md-card-title>
+    <md-card-title >{{contact | contactName}}</md-card-title>
     <table class="contact-item-table">
       <tr><td>Phone:</td><td>{{contact.phone}}</td></tr>
-      <tr><td>Address:</td><td> {{contact.address}}</td></tr>
-      <tr><td>City:</td><td> {{contact.city}}</td></tr>
-      <tr><td>osoite: </td><td>{{contact | contactAddress}}</td></tr>
-      <tr><td>id: </td><td>{{contact.id}}</td></tr>
+      <tr><td>Address: </td><td>{{contact | contactAddress}}</td></tr>
     </table>
   </md-card-content>
 

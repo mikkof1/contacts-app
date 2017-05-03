@@ -1,7 +1,7 @@
 .toolbar-and-content {
   position: relative;
-  height: 97vh;
-  min-height: 97vh;
+  height: 100vh;
+  min-height: 100vh;
 }
 
 .toolbar {
@@ -15,10 +15,8 @@
 
 .sidenav-container {
   position: relative;
-  width: 100%;
-  max-width: 100%;
-  height: 97vh;
-  min-height: 97vh;
+  height: 100vh;
+  min-height: 100vh;
 }
 
 .contactSidenav {
