@@ -1,7 +1,6 @@
 .toolbar-and-content {
   position: relative;
   height: 100vh;
-  min-height: 100vh;
 }
 
 .toolbar {
@@ -15,8 +14,7 @@
 
 .sidenav-container {
   position: relative;
-  height: 100vh;
-  min-height: 100vh;
+  height: 100%;
 }
 
 .contactSidenav {
@@ -24,10 +22,9 @@
   background-size: 190px;
   background-repeat: no-repeat;
   width: 190px;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.sidenav-login {
+.sidenav-items {
   height: 140px;
   color: white;
 }

@@ -5,6 +5,55 @@ webpackJsonp([1,4],{
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Dialogs_contact_dialog_contact_dialog_component__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__map_map_dialog_map_dialog_component__ = __webpack_require__(101);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DialogService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var DialogService = (function () {
+    function DialogService(dialog) {
+        this.dialog = dialog;
+    }
+    DialogService.prototype.contactDialog = function (contact) {
+        console.log('This is dialog service contactDialog method message :)');
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__Dialogs_contact_dialog_contact_dialog_component__["a" /* ContactDialogComponent */]);
+        dialogRef.componentInstance.contactInn = contact;
+        return dialogRef.afterClosed();
+    };
+    DialogService.prototype.openMap = function (contact) {
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__map_map_dialog_map_dialog_component__["a" /* MapDialogComponent */]);
+        dialogRef.componentInstance.contact = contact;
+        return dialogRef.afterClosed();
+    };
+    return DialogService;
+}());
+DialogService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */]) === "function" && _a || Object])
+], DialogService);
+
+var _a;
+//# sourceMappingURL=dialog.service.js.map
+
+/***/ }),
+
+/***/ 101:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__contact_contact__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(11);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapDialogComponent; });
@@ -40,8 +89,8 @@ __decorate([
 MapDialogComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'app-map-dialog',
-        template: __webpack_require__(230),
-        styles: [__webpack_require__(222)]
+        template: __webpack_require__(231),
+        styles: [__webpack_require__(223)]
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["f" /* DomSanitizer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["f" /* DomSanitizer */]) === "function" && _b || Object])
 ], MapDialogComponent);
@@ -51,7 +100,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 101:
+/***/ 102:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -91,7 +140,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(153);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(102);
 
 
 
@@ -177,8 +226,8 @@ __decorate([
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'app-root',
-        template: __webpack_require__(225),
-        styles: [__webpack_require__(217)]
+        template: __webpack_require__(226),
+        styles: [__webpack_require__(218)]
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _b || Object])
 ], AppComponent);
@@ -194,7 +243,7 @@ var _a, _b;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser_animations__ = __webpack_require__(154);
@@ -203,15 +252,16 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__contact_contact_list_contact_list_component__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__contact_contact_list_item_contact_list_item_component__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__contact_services_contact_service__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__contact_services_dialog_service__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__contact_Dialogs_contact_dialog_contact_dialog_component__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__map_map_dialog_map_dialog_component__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__contact_services_contact_service__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__contact_services_dialog_service__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__contact_Dialogs_contact_dialog_contact_dialog_component__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__map_map_dialog_map_dialog_component__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__contact_pipes_contact_address_pipe__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__contact_contacts_component__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__user_login_login_component__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__contact_services_contact_api_storage_service__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__contact_services_contact_local_storage_service__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__user_login_login_component__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__contact_services_contact_api_storage_service__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__contact_services_contact_local_storage_service__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__contact_pipes_contact_name_pipe__ = __webpack_require__(161);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -219,6 +269,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -269,7 +320,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_14__map_map_dialog_map_dialog_component__["a" /* MapDialogComponent */],
             __WEBPACK_IMPORTED_MODULE_15__contact_pipes_contact_address_pipe__["a" /* ContactAddressPipe */],
             __WEBPACK_IMPORTED_MODULE_16__contact_contacts_component__["a" /* ContactsComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__user_login_login_component__["a" /* LoginComponent */]
+            __WEBPACK_IMPORTED_MODULE_17__user_login_login_component__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__contact_pipes_contact_name_pipe__["a" /* ContactNamePipe */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -347,8 +399,8 @@ __decorate([
 ContactListItemComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'app-contact-list-item',
-        template: __webpack_require__(227),
-        styles: [__webpack_require__(219)]
+        template: __webpack_require__(228),
+        styles: [__webpack_require__(220)]
     }),
     __metadata("design:paramtypes", [])
 ], ContactListItemComponent);
@@ -413,8 +465,8 @@ __decorate([
 ContactListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'app-contact-list',
-        template: __webpack_require__(228),
-        styles: [__webpack_require__(220)]
+        template: __webpack_require__(229),
+        styles: [__webpack_require__(221)]
     }),
     __metadata("design:paramtypes", [])
 ], ContactListComponent);
@@ -429,8 +481,8 @@ var _a, _b, _c;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_contact_service__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_dialog_service__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_contact_service__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_dialog_service__ = __webpack_require__(100);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -506,8 +558,8 @@ var ContactsComponent = (function () {
 ContactsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'app-contacts',
-        template: __webpack_require__(229),
-        styles: [__webpack_require__(221)]
+        template: __webpack_require__(230),
+        styles: [__webpack_require__(222)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_contact_service__["a" /* ContactService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_contact_service__["a" /* ContactService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_dialog_service__["a" /* DialogService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_dialog_service__["a" /* DialogService */]) === "function" && _b || Object])
 ], ContactsComponent);
@@ -522,7 +574,7 @@ var _a, _b;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash__ = __webpack_require__(71);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_lodash__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactAddressPipe; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -558,6 +610,42 @@ ContactAddressPipe = __decorate([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_lodash__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactNamePipe; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var ContactNamePipe = (function () {
+    function ContactNamePipe() {
+    }
+    ContactNamePipe.prototype.transform = function (contact, args) {
+        var addressParts = [contact.firstName || null, contact.lastName || null];
+        addressParts = __WEBPACK_IMPORTED_MODULE_1_lodash__["reject"](addressParts, __WEBPACK_IMPORTED_MODULE_1_lodash__["isNull"]);
+        return addressParts.join(' ');
+    };
+    return ContactNamePipe;
+}());
+ContactNamePipe = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["W" /* Pipe */])({
+        name: 'contactName'
+    })
+], ContactNamePipe);
+
+//# sourceMappingURL=contact-name.pipe.js.map
+
+/***/ }),
+
+/***/ 162:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(54);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -579,7 +667,7 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.openContactsPage = function () {
         if (this.account && this.password) {
-            navigator.vibrate([400, 300, 400, 300]);
+            navigator.vibrate([200]);
             this.router.navigate(['contacts']);
         }
     };
@@ -588,32 +676,14 @@ var LoginComponent = (function () {
 LoginComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'app-login',
-        template: __webpack_require__(231),
-        styles: [__webpack_require__(223)]
+        template: __webpack_require__(232),
+        styles: [__webpack_require__(224)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _a || Object])
 ], LoginComponent);
 
 var _a;
 //# sourceMappingURL=login.component.js.map
-
-/***/ }),
-
-/***/ 217:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(9)();
-// imports
-
-
-// module
-exports.push([module.i, ".toolbar-and-content {\r\n  position: relative;\r\n  height: 98vh;\r\n  min-height: 97vh;\r\n}\r\n\r\n.toolbar {\r\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .3);\r\n  z-index: 3;\r\n}\r\n\r\n.router-body {\r\n  overflow-y: auto;\r\n}\r\n\r\n.sidenav-container {\r\n  position: relative;\r\n  width: 100%;\r\n  max-width: 100%;\r\n  height: 98vh;\r\n  min-height: 98vh;\r\n}\r\n\r\n.contactSidenav {\r\n  background-image: url(" + __webpack_require__(280) + ");\r\n  background-size: 190px;\r\n  background-repeat: no-repeat;\r\n  width: 190px;\r\n  font-family: Roboto, \"Helvetica Neue\", sans-serif;\r\n}\r\n\r\n.sidenav-login {\r\n  height: 140px;\r\n  color: white;\r\n}\r\n\r\n.login-icon {\r\n  padding-top: 3px;\r\n  font-size: 64px;\r\n}\r\n\r\n.login-name {\r\n  padding-top: 8px;\r\n  padding-left: 10px;\r\n  font-size: 16px;\r\n  font-weight: bold;\r\n}\r\n\r\n.login-mail {\r\n  padding-left: 10px;\r\n  font-size: 12px;\r\n}\r\n\r\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
 
 /***/ }),
 
@@ -625,7 +695,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, ".contact-Dialog-Body{\r\n  width: 260px;\r\n  height: 400px;\r\n\r\n}\r\n.dialog-inputs input{\r\n  width: 260px;\r\n}\r\n\r\n.contact-title{\r\n  font-family: Roboto, \"Helvetica Neue\", sans-serif;\r\n  font-size: 28px;\r\n  margin-bottom: 20px;\r\n}\r\n\r\n.btnSave{\r\n  float: left;\r\n}\r\n.btnClose{\r\n  float: right;\r\n}\r\n.contact-dialog-action{\r\nmargin-top: 20px;\r\n}\r\n", ""]);
+exports.push([module.i, ".toolbar-and-content {\r\n  position: relative;\r\n  height: 100vh;\r\n}\r\n\r\n.toolbar {\r\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .3);\r\n  z-index: 3;\r\n}\r\n\r\n.router-body {\r\n  overflow-y: auto;\r\n}\r\n\r\n.sidenav-container {\r\n  position: relative;\r\n  height: 100%;\r\n}\r\n\r\n.contactSidenav {\r\n  background-image: url(" + __webpack_require__(281) + ");\r\n  background-size: 190px;\r\n  background-repeat: no-repeat;\r\n  width: 190px;\r\n}\r\n\r\n.sidenav-items {\r\n  height: 140px;\r\n  color: white;\r\n}\r\n\r\n.login-icon {\r\n  padding-top: 3px;\r\n  font-size: 64px;\r\n}\r\n\r\n.login-name {\r\n  padding-top: 8px;\r\n  padding-left: 10px;\r\n  font-size: 16px;\r\n  font-weight: bold;\r\n}\r\n\r\n.login-mail {\r\n  padding-left: 10px;\r\n  font-size: 12px;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -643,7 +713,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, "#card {\r\n  width: 250px;\r\n  margin-bottom: 20px;\r\n  background-color: mintcream;\r\n}\r\n\r\n.contact-item-header {\r\n  padding: 2px 0 0 2px;\r\n  border-radius: 3px 3px 0 0;\r\ncolor: white;\r\n  background-color: #7986cb;\r\n}\r\n\r\n.contact-item-header md-icon {\r\n  font-size: 42px;\r\n}\r\n\r\n#btnMap {\r\n  float: right;\r\n}\r\n\r\n.contact-item-table tr td{\r\n  padding: 2px 10px 2px 0px;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".contact-Dialog-Body{\r\n  width: 260px;\r\n  height: 400px;\r\n\r\n}\r\n.dialog-inputs input{\r\n  width: 260px;\r\n}\r\n\r\n.contact-title{\r\n  font-family: Roboto, \"Helvetica Neue\", sans-serif;\r\n  font-size: 28px;\r\n  margin-bottom: 20px;\r\n}\r\n\r\n.btnSave{\r\n  float: left;\r\n}\r\n.btnClose{\r\n  float: right;\r\n}\r\n.contact-dialog-action{\r\nmargin-top: 20px;\r\n}\r\n", ""]);
 
 // exports
 
@@ -661,7 +731,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, ".contacts-items{\r\n  margin-top: 10px;\r\n}\r\n", ""]);
+exports.push([module.i, ".card {\r\n  width: 250px;\r\n  margin-bottom: 20px;\r\n}\r\n\r\n.contact-item-header {\r\n  padding-top: 10px;\r\n  color: white;\r\n  background-color: #7986cb;\r\n}\r\n.mat-card-image {\r\n  margin-bottom: 0;\r\n}\r\n\r\n.contact-item-icon {\r\n  font-size: 42px;\r\n  width: 42px;\r\n  height: 42px;\r\n  padding: 10px;\r\n}\r\n\r\n.contact-item-name{\r\n  font-size: 16px;\r\n  margin-bottom: 6px;\r\n  font-weight: bold;\r\n}\r\n\r\n.contact-item-content{\r\n  font-size: 14px;\r\n  margin-bottom: 2px;\r\n}\r\n\r\n#btnMap {\r\n  float: right;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -679,7 +749,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, ".contacts-list {\r\n  width: 100%;\r\n}\r\n\r\n.no-contacts-div {\r\n  width: 100%;\r\n  text-align: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: lightgray;\r\n}\r\n\r\n.no-contacts-icon {\r\n  font-size: 250px;\r\n  height: 250px;\r\n  width: 250px;\r\n}\r\n\r\n.no-contacts-text {\r\n  font-size: 26px;\r\n}\r\n\r\n#btnAdd {\r\n  bottom: 30px;\r\n  left: calc(50% + 140px);\r\n  position: absolute;\r\n}\r\n", ""]);
+exports.push([module.i, ".contacts-items{\r\n  margin-top: 10px;\r\n}\r\n", ""]);
 
 // exports
 
@@ -697,7 +767,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, ".map-dialog-body{\r\n  width: 455px;\r\n  height: 420px;\r\n\r\n}\r\n\r\niframe{\r\n  width: 450px;\r\n  height: 300px;\r\n\r\n}\r\n\r\n#map-title{\r\n\r\n}\r\n\r\n.btnClose{\r\nfloat: right;\r\n}\r\n", ""]);
+exports.push([module.i, ".contacts-list {\r\n  width: 100%;\r\n  margin-bottom: 80px;\r\n}\r\n\r\n.no-contacts-div {\r\n  width: 100%;\r\n  text-align: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: lightgray;\r\n}\r\n\r\n.no-contacts-icon {\r\n  font-size: 250px;\r\n  height: 250px;\r\n  width: 250px;\r\n}\r\n\r\n.no-contacts-text {\r\n  font-size: 26px;\r\n}\r\n\r\n#btnAdd {\r\n  bottom: 30px;\r\n  left: calc(50% + 100px);\r\n  position: absolute;\r\n}\r\n", ""]);
 
 // exports
 
@@ -715,7 +785,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, "\r\n.loginCard {\r\n  width: 350px;\r\n  text-align: center;\r\n}\r\n\r\n#loginTitle {\r\n  float: left;\r\n  position: absolute;\r\n  top: 190px;\r\n  font-size: 36px;\r\n  color: white;\r\n}\r\n\r\n.cardIcon {\r\n  font-size: 36px;\r\n  padding-right: 28px;\r\n  color: navy;\r\n}\r\n\r\n.btnSignIn {\r\n  margin-top: 18px;\r\n}\r\n\r\n.router-body{\r\n  overflow-y: hidden !important;\r\n}\r\n", ""]);
+exports.push([module.i, ".map-dialog-body{\r\n  width: 455px;\r\n  height: 420px;\r\n\r\n}\r\n\r\niframe{\r\n  width: 450px;\r\n  height: 300px;\r\n\r\n}\r\n\r\n#map-title{\r\n\r\n}\r\n\r\n.btnClose{\r\nfloat: right;\r\n}\r\n", ""]);
 
 // exports
 
@@ -725,63 +795,81 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 225:
-/***/ (function(module, exports) {
+/***/ 224:
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<div>\n\n  <md-sidenav-container class=\"sidenav-container\">\n    <md-sidenav *ngIf=\"!toolbarDisabled\" #sidenav class=\"contactSidenav\"\n                [mode]=\"sidenavMode\"\n                [opened]=\"sidenavMode == 'side'\">\n      <div class=\"sidenav-login\">\n        <md-icon class=\"md-48, login-icon\">account_circle</md-icon>\n        <div class=\"login-name\">User name</div>\n        <div class=\"login-mail\">User email</div>\n      </div>\n      <button md-icon-button (click)=\"navigateHome(sidenav)\">\n        <md-icon>home</md-icon>\n        <span>Home</span>\n      </button>\n      <br>\n      <button md-icon-button (click)=\"navigateContacts(sidenav)\">\n        <md-icon>mood</md-icon>\n        <span>Contacts</span>\n      </button>\n    </md-sidenav>\n\n    <div class=\"toolbar-and-content\" fxLayout=\"column\" fxLayoutAlign=\"start stretch\">\n      <md-toolbar *ngIf=\"!toolbarDisabled\" class=\"toolbar \">\n        <button md-icon-button (click)=\"toggleSideNav()\">\n          <md-icon>menu</md-icon>\n        </button>\n        <span>Contacts app</span>\n      </md-toolbar>\n\n      <div class=\"router-body\">\n        <router-outlet></router-outlet>\n      </div>\n    </div>\n\n  </md-sidenav-container>\n</div>\n"
+exports = module.exports = __webpack_require__(9)();
+// imports
+
+
+// module
+exports.push([module.i, "\r\n.loginCard {\r\n  width: 300px;\r\n  text-align: center;\r\n}\r\n\r\n#loginTitle {\r\n  float: left;\r\n  position: absolute;\r\n  top: 160px;\r\n  font-size: 36px;\r\n  color: white;\r\n}\r\n\r\n.cardIcon {\r\n  font-size: 36px;\r\n  padding-right: 28px;\r\n  color: navy;\r\n}\r\n\r\n.btnSignIn {\r\n  margin-top: 18px;\r\n}\r\n\r\n.router-body{\r\n  overflow-y: hidden !important;\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
 /***/ 226:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"contact-Dialog-Body\">\n\n  <div class=\"contact-title\">{{title}}</div>\n\n  <div md-dialog-content class=\"dialog-inputs\">\n    <md-input-container floatPlaceholder=\"auto\">\n      <input mdInput [(ngModel)]=\"firstName\" type=\"text\" required\n             placeholder=\"Firstname\">\n    </md-input-container>\n    <md-input-container floatPlaceholder=\"auto\">\n      <input mdInput [(ngModel)]=\"lastName\" type=\"text\" required\n             placeholder=\"Lastname\">\n    </md-input-container>\n    <md-input-container floatPlaceholder=\"auto\">\n      <input mdInput [(ngModel)]=\"phone\" type=\"text\" required\n             placeholder=\"Phone\">\n    </md-input-container>\n    <md-input-container floatPlaceholder=\"auto\">\n      <input mdInput [(ngModel)]=\"address\" type=\"text\" required\n             placeholder=\"Street Address\">\n    </md-input-container>\n    <md-input-container floatPlaceholder=\"auto\">\n      <input mdInput [(ngModel)]=\"city\" type=\"text\" required\n             placeholder=\"City\">\n    </md-input-container>\n  </div>\n\n  <div class=\"contact-dialog-action\">\n    <button class=\"btnSave\" md-raised-button (click)=\"onSave()\" >{{btnSaveText}}</button>\n    <button class=\"btnClose\" md-raised-button (click)=\"dialogRef.close()\">Close</button>\n  </div>\n\n</div>\n"
+module.exports = "<md-sidenav-container class=\"sidenav-container\">\n  <md-sidenav *ngIf=\"!toolbarDisabled\" #sidenav class=\"contactSidenav\"\n              [mode]=\"sidenavMode\"\n              [opened]=\"sidenavMode == 'side'\">\n    <div class=\"sidenav-items\">\n      <md-icon class=\"md-48, login-icon\">account_circle</md-icon>\n      <div class=\"login-name\">User name</div>\n      <div class=\"login-mail\">User email</div>\n    </div>\n    <button md-icon-button (click)=\"navigateHome(sidenav)\">\n      <md-icon>home</md-icon>\n      <span>Home</span>\n    </button>\n    <br>\n    <button md-icon-button (click)=\"navigateContacts(sidenav)\">\n      <md-icon>mood</md-icon>\n      <span>Contacts</span>\n    </button>\n  </md-sidenav>\n\n  <div class=\"toolbar-and-content\" fxLayout=\"column\" fxLayoutAlign=\"start stretch\">\n    <md-toolbar *ngIf=\"!toolbarDisabled\" class=\"toolbar \">\n      <button md-icon-button (click)=\"toggleSideNav()\">\n        <md-icon>menu</md-icon>\n      </button>\n      <span>Contacts app</span>\n    </md-toolbar>\n\n    <div class=\"router-body\">\n      <router-outlet></router-outlet>\n    </div>\n  </div>\n\n</md-sidenav-container>\n\n"
 
 /***/ }),
 
 /***/ 227:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"contact-item-card\">\n<div class=\"contact-item-header\"><md-icon>account_circle</md-icon></div>\n<md-card id=\"card\" class=\"mat-card\">\n\n<md-card-header></md-card-header>\n\n  <md-card-content>\n    <md-card-title >{{contact.firstName+' '+contact.lastName}}</md-card-title>\n    <table class=\"contact-item-table\">\n      <tr><td>Phone:</td><td>{{contact.phone}}</td></tr>\n      <tr><td>Address:</td><td> {{contact.address}}</td></tr>\n      <tr><td>City:</td><td> {{contact.city}}</td></tr>\n      <tr><td>osoite: </td><td>{{contact | contactAddress}}</td></tr>\n      <tr><td>id: </td><td>{{contact.id}}</td></tr>\n    </table>\n  </md-card-content>\n\n  <md-card-actions>\n    <button md-icon-button (click)=\"deleteContactItem()\">\n      <md-icon >delete</md-icon>\n    </button>\n    <button md-icon-button (click)=\"editContactItem()\">\n      <md-icon >edit</md-icon>\n    </button>\n\n    <button id=\"btnMap\" md-icon-button (click)=\"showMapItem()\">\n      <md-icon class=\"md-18\">room</md-icon>\n    </button>\n\n  </md-card-actions>\n</md-card>\n</div>\n"
+module.exports = "<div class=\"contact-Dialog-Body\">\n\n  <div class=\"contact-title\">{{title}}</div>\n\n  <div md-dialog-content class=\"dialog-inputs\">\n    <md-input-container floatPlaceholder=\"auto\">\n      <input mdInput [(ngModel)]=\"firstName\" type=\"text\" required\n             placeholder=\"Firstname\">\n    </md-input-container>\n    <md-input-container floatPlaceholder=\"auto\">\n      <input mdInput [(ngModel)]=\"lastName\" type=\"text\" required\n             placeholder=\"Lastname\">\n    </md-input-container>\n    <md-input-container floatPlaceholder=\"auto\">\n      <input mdInput [(ngModel)]=\"phone\" type=\"text\" required\n             placeholder=\"Phone\">\n    </md-input-container>\n    <md-input-container floatPlaceholder=\"auto\">\n      <input mdInput [(ngModel)]=\"address\" type=\"text\" required\n             placeholder=\"Street Address\">\n    </md-input-container>\n    <md-input-container floatPlaceholder=\"auto\">\n      <input mdInput [(ngModel)]=\"city\" type=\"text\" required\n             placeholder=\"City\">\n    </md-input-container>\n  </div>\n\n  <div class=\"contact-dialog-action\">\n    <button class=\"btnSave\" md-raised-button (click)=\"onSave()\" >{{btnSaveText}}</button>\n    <button class=\"btnClose\" md-raised-button (click)=\"dialogRef.close()\">Close</button>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
 /***/ 228:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"contacts-items\" fxLayout=\"column\" fxLayoutAlign=\"space-around center\" *ngFor=\"let contact of contacts\">\n\n  <app-contact-list-item [contact]=\"contact\"\n                         (remove)=\"deleteContactListItem($event)\"\n                         (edit)=\"editContactListItem($event)\"\n                         (showOnMap)=\"showMapListItem($event)\">\n  </app-contact-list-item>\n\n</div>\n\n"
+module.exports = "<md-card class=\"card\">\n\n  <div md-card-image class=\"contact-item-header\" fxLayout=\"row\">\n    <md-icon class=\"contact-item-icon\">person</md-icon>\n\n    <md-card-content>\n      <div class=\"contact-item-name\">{{contact | contactName}}</div>\n      <div class=\"contact-item-content\">\n        <div>{{contact.phone}}</div>\n        <div>{{contact | contactAddress}}</div>\n      </div>\n    </md-card-content>\n  </div>\n\n  <md-card-actions>\n    <button md-icon-button (click)=\"deleteContactItem()\">\n      <md-icon>delete</md-icon>\n    </button>\n    <button md-icon-button (click)=\"editContactItem()\">\n      <md-icon>edit</md-icon>\n    </button>\n\n    <button id=\"btnMap\" md-icon-button (click)=\"showMapItem()\">\n      <md-icon>room</md-icon>\n    </button>\n\n  </md-card-actions>\n</md-card>\n\n"
 
 /***/ }),
 
 /***/ 229:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"contacts-list\">\n<app-contact-list [contacts]=\"contactsList\"\n                  (removeContact)=\"deleteContact($event)\"\n                  (editContact)=\"openDialog($event)\"\n                  (showContactOnMap)=\"showMap($event)\">\n</app-contact-list>\n</div>\n\n<div *ngIf=\"!contactsList || !contactsList.length\" class=\"no-contacts-div\" fxLayout=\"column\" fxFlexAlign=\"center center\" fxFlexFill>\n  <md-icon class=\"no-contacts-icon\">account_circle</md-icon>\n  <p class=\"no-contacts-text\">  No contacts </p>\n</div>\n\n<button id=\"btnAdd\" md-fab (click)=\"openDialog()\" color=\"primary\">\n  <md-icon>add</md-icon>\n</button>\n"
+module.exports = "<div class=\"contacts-items\" fxLayout=\"column\" fxLayoutAlign=\"space-around center\" *ngFor=\"let contact of contacts\">\n\n  <app-contact-list-item [contact]=\"contact\"\n                         (remove)=\"deleteContactListItem($event)\"\n                         (edit)=\"editContactListItem($event)\"\n                         (showOnMap)=\"showMapListItem($event)\">\n  </app-contact-list-item>\n\n</div>\n\n"
 
 /***/ }),
 
 /***/ 230:
 /***/ (function(module, exports) {
 
-module.exports = "<div md-dialog-content class=\"map-dialog-body\">\n  <div md-dialog-title id=\"map-title\">\n    {{contact.firstName}} {{contact.lastName}}\n  </div>\n  <div md-dialog-content>\n<iframe [src]=\"trustedUrl()\" allowfullscreen></iframe>\n\n  </div>\n\n  <br>\n  <!--div>url: {{url}}</div-->\n\n\n  <div class=\"map-dialog-action\">\n    <button class=\"btnClose\" md-raised-button md-dialog-close>Close</button>\n  </div>\n</div>\n"
+module.exports = "<div class=\"contacts-list\">\n<app-contact-list [contacts]=\"contactsList\"\n                  (removeContact)=\"deleteContact($event)\"\n                  (editContact)=\"openDialog($event)\"\n                  (showContactOnMap)=\"showMap($event)\">\n</app-contact-list>\n</div>\n\n<div *ngIf=\"!contactsList || !contactsList.length\" class=\"no-contacts-div\" fxLayout=\"column\" fxFlexAlign=\"center center\" fxFlexFill>\n  <md-icon class=\"no-contacts-icon\">account_circle</md-icon>\n  <p class=\"no-contacts-text\">  No contacts </p>\n</div>\n\n<button id=\"btnAdd\" md-fab (click)=\"openDialog()\" color=\"primary\">\n  <md-icon>add</md-icon>\n</button>\n"
 
 /***/ }),
 
 /***/ 231:
 /***/ (function(module, exports) {
 
+module.exports = "<div md-dialog-content class=\"map-dialog-body\">\n  <div md-dialog-title id=\"map-title\">\n    {{contact.firstName}} {{contact.lastName}}\n  </div>\n  <div md-dialog-content>\n<iframe [src]=\"trustedUrl()\" allowfullscreen></iframe>\n\n  </div>\n\n  <br>\n  <!--div>url: {{url}}</div-->\n\n\n  <div class=\"map-dialog-action\">\n    <button class=\"btnClose\" md-raised-button md-dialog-close>Close</button>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ 232:
+/***/ (function(module, exports) {
+
 module.exports = "\n<div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n  <md-card class=\"loginCard\">\n\n    <img md-card-image src=\"assets/images/google-material-design-wallpaper-2.jpg\">\n\n    <md-card-title id=\"loginTitle\">Contacts app</md-card-title>\n\n    <br>\n\n    <div md-dialog-content fxLayout=\"column\">\n      <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n        <md-icon class=\"md-36\" class=\"cardIcon\">account_circle</md-icon>\n\n        <md-input-container floatPlaceholder=\"auto\">\n          <input mdInput [(ngModel)]=\"account\" type=\"text\"\n                 placeholder=\"Username\">\n        </md-input-container>\n      </div>\n\n\n      <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n        <md-icon class=\"md-36\" class=\"cardIcon\">lock</md-icon>\n\n        <md-input-container floatPlaceholder=\"auto\">\n          <input mdInput [(ngModel)]=\"password\" type=\"password\"\n                 placeholder=\"Password\">\n        </md-input-container>\n      </div>\n\n      <div class=\"contact-dialog-action\">\n        <button class=\"btnSignIn\" [disabled]=\"!account || !password\" md-raised-button (click)=\"openContactsPage()\">Login\n        </button>\n      </div>\n\n    </div>\n  </md-card>\n</div>\n\n"
 
 /***/ }),
 
-/***/ 280:
+/***/ 281:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "google-material-design-wallpaper-2.cc7f3ac1dfb751135e33.jpg";
 
 /***/ }),
 
-/***/ 283:
+/***/ 284:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(132);
@@ -810,7 +898,7 @@ var Contact = (function () {
 
 /***/ }),
 
-/***/ 95:
+/***/ 96:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -868,8 +956,8 @@ __decorate([
 ContactDialogComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'app-contact-dialog',
-        template: __webpack_require__(226),
-        styles: [__webpack_require__(218)]
+        template: __webpack_require__(227),
+        styles: [__webpack_require__(219)]
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MdDialogRef */]) === "function" && _b || Object])
 ], ContactDialogComponent);
@@ -879,7 +967,7 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 96:
+/***/ 97:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -926,7 +1014,7 @@ var _a;
 
 /***/ }),
 
-/***/ 97:
+/***/ 98:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -934,7 +1022,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__contact__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash__ = __webpack_require__(71);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_lodash__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactLocalStorageService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1017,14 +1105,14 @@ ContactLocalStorageService = __decorate([
 
 /***/ }),
 
-/***/ 98:
+/***/ 99:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__contact_local_storage_service__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_api_storage_service__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__contact_local_storage_service__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_api_storage_service__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(102);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1072,56 +1160,7 @@ ContactService = __decorate([
 var _a, _b;
 //# sourceMappingURL=contact.service.js.map
 
-/***/ }),
-
-/***/ 99:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Dialogs_contact_dialog_contact_dialog_component__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__map_map_dialog_map_dialog_component__ = __webpack_require__(100);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DialogService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var DialogService = (function () {
-    function DialogService(dialog) {
-        this.dialog = dialog;
-    }
-    DialogService.prototype.contactDialog = function (contact) {
-        console.log('This is dialog service contactDialog method message :)');
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__Dialogs_contact_dialog_contact_dialog_component__["a" /* ContactDialogComponent */]);
-        dialogRef.componentInstance.contactInn = contact;
-        return dialogRef.afterClosed();
-    };
-    DialogService.prototype.openMap = function (contact) {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__map_map_dialog_map_dialog_component__["a" /* MapDialogComponent */]);
-        dialogRef.componentInstance.contact = contact;
-        return dialogRef.afterClosed();
-    };
-    return DialogService;
-}());
-DialogService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdDialog */]) === "function" && _a || Object])
-], DialogService);
-
-var _a;
-//# sourceMappingURL=dialog.service.js.map
-
 /***/ })
 
-},[283]);
+},[284]);
 //# sourceMappingURL=main.bundle.js.map

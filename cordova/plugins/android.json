@@ -7,9 +7,6 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ekoodi.contactsapp"
-        },
         "cordova-plugin-crosswalk-webview": {
             "XWALK_VERSION": "23+",
             "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
@@ -19,6 +16,9 @@
             "PACKAGE_NAME": "com.ekoodi.contactsapp"
         },
         "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.ekoodi.contactsapp"
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.ekoodi.contactsapp"
         }
     },

@@ -1,27 +1,29 @@
-<div class="contact-item-card">
-<div class="contact-item-header"><md-icon>account_circle</md-icon></div>
-<md-card id="card" class="mat-card">
+<md-card class="card">
 
-  <md-card-content>
-    <md-card-title >{{contact | contactName}}</md-card-title>
-    <table class="contact-item-table">
-      <tr><td>Phone:</td><td>{{contact.phone}}</td></tr>
-      <tr><td>Address: </td><td>{{contact | contactAddress}}</td></tr>
-    </table>
-  </md-card-content>
+  <div md-card-image class="contact-item-header" fxLayout="row">
+    <md-icon class="contact-item-icon">person</md-icon>
+
+    <md-card-content>
+      <div class="contact-item-name">{{contact | contactName}}</div>
+      <div class="contact-item-content">
+        <div>{{contact.phone}}</div>
+        <div>{{contact | contactAddress}}</div>
+      </div>
+    </md-card-content>
+  </div>
 
   <md-card-actions>
     <button md-icon-button (click)="deleteContactItem()">
-      <md-icon >delete</md-icon>
+      <md-icon>delete</md-icon>
     </button>
     <button md-icon-button (click)="editContactItem()">
-      <md-icon >edit</md-icon>
+      <md-icon>edit</md-icon>
     </button>
 
     <button id="btnMap" md-icon-button (click)="showMapItem()">
-      <md-icon class="md-18">room</md-icon>
+      <md-icon>room</md-icon>
     </button>
 
   </md-card-actions>
 </md-card>
-</div>
+
