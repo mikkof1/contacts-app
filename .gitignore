@@ -4,3 +4,7 @@ obj
 .idea
 .iml
 *.iml
+/cordova/gen
+/cordova/plugins
+/cordova/www
+/cordova/platforms
