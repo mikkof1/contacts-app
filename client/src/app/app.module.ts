@@ -12,6 +12,7 @@ import {ContactListComponent} from './contact/contact-list/contact-list.componen
 import {ContactListItemComponent} from './contact/contact-list-item/contact-list-item.component';
 import {ContactService} from "./contact/services/contact.service";
 import {DialogService} from "./contact/services/dialog.service";
+import {DeviceService} from "./contact/services/device.service";
 import {ContactDialogComponent} from './contact/Dialogs/contact-dialog/contact-dialog.component';
 import {MapDialogComponent} from './map/map-dialog/map-dialog.component';
 import {ContactAddressPipe} from './contact/pipes/contact-address.pipe';
@@ -20,6 +21,7 @@ import {LoginComponent} from './user/login/login.component';
 import {ContactApiStorageService}from './contact/services/contact-api-storage.service';
 import {ContactLocalStorageService}from './contact/services/contact-local-storage.service';
 import { ContactNamePipe } from './contact/pipes/contact-name.pipe';
+import { VibrationDirective } from './contact/services/vibration.directive';
 
 const routes = [
   {
@@ -47,7 +49,8 @@ const routes = [
     ContactAddressPipe,
     ContactsComponent,
     LoginComponent,
-    ContactNamePipe
+    ContactNamePipe,
+    VibrationDirective
   ],
   imports: [
     BrowserModule,
@@ -58,9 +61,18 @@ const routes = [
     FlexLayoutModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ContactService, DialogService, ContactApiStorageService, ContactLocalStorageService],
+  providers: [
+    ContactService,
+    DialogService,
+    ContactApiStorageService,
+    ContactLocalStorageService,
+    DeviceService
+  ],
   bootstrap: [AppComponent],
-  entryComponents: [ContactDialogComponent, MapDialogComponent]
+  entryComponents: [
+    ContactDialogComponent,
+    MapDialogComponent
+  ]
 })
 export class AppModule {
 

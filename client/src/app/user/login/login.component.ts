@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
 
   openContactsPage(){
     if(this.account&&this.password){
-      navigator.vibrate([200]);
       this.router.navigate(['contacts'])
     }
 
