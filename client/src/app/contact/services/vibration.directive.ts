@@ -2,7 +2,7 @@ import {Directive, HostListener} from '@angular/core';
 import {DeviceService} from "./device.service";
 
 @Directive({
-  selector: '[appVibration]'
+  selector: '[caVibration]'
 })
 export class VibrationDirective {
 

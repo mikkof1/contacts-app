@@ -29,7 +29,7 @@
       </div>
 
       <div class="contact-dialog-action">
-        <button class="btnSignIn" [disabled]="!account || !password" md-raised-button (click)="openContactsPage()">Login
+        <button (click)="openContactsPage()" class="btnSignIn" [disabled]="!account || !password" md-raised-button caVibration >Login
         </button>
       </div>
 

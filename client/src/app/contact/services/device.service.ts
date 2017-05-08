@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class DeviceService {
@@ -6,16 +6,16 @@ export class DeviceService {
   cordova: boolean;
 
   constructor() {
-    document.addEventListener('deviceready',()=>{
-      console.log('cordova ready');
-      this.cordova=true;
-    },false);
+    document.addEventListener('deviceready', () => {
+      // console.log('cordova ready');
+      this.cordova = true;
+    }, false);
   }
 
-  public vibrate(time?: number){
+  public vibrate(time?: number) {
     console.log('vibrating...');
-    if(this.cordova){
-      navigator.vibrate(time||200);
+    if (this.cordova) {
+      navigator.vibrate(time || 200);
     }
   }
 

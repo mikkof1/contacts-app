@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Contact} from "../contact";
 import {Observable} from "rxjs/Observable";
 import * as _ from 'lodash';
+import 'rxjs/add/observable/of';
 
 @Injectable()
 export class ContactLocalStorageService {
