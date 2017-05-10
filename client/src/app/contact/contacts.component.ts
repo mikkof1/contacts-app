@@ -24,19 +24,19 @@ export class ContactsComponent implements OnInit {
   reloadContacts() {
     this.contactService.findAllContacts().subscribe(data => {
       console.log('data: ' + data);
-      this.contactsList = data
+      this.contactsList = data;
     });
   }
 
   addNewContact(contact: Contact) {
     this.contactService.addNewContact(contact).subscribe(data => {
-      this.reloadContacts();
+      this.contactsList = data;
     });
   }
 
   editContact(contact: Contact) {
     this.contactService.editContact(contact).subscribe(data => {
-      this.reloadContacts();
+      this.contactsList = data;
     });
   }
 
@@ -47,7 +47,7 @@ export class ContactsComponent implements OnInit {
 
     if (question) {
       this.contactService.deleteContact(contact).subscribe(data => {
-        this.reloadContacts();
+        this.contactsList = data;
       });
     }
   }

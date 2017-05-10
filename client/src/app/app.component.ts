@@ -40,19 +40,13 @@ export class AppComponent {
 
   navigateHome(sideNav) {
     this.router.navigate(['login']);
-    if (this.sidenavMode == 'over') {
-      sideNav.toggle();
-    }
   }
 
   navigateContacts(sideNav) {
     this.router.navigate(['contacts']);
-    if (this.sidenavMode == 'over') {
-      sideNav.toggle();
-    }
   }
 
-  toggleSideNav(){
+  toggleSideNav() {
     this.sidenav.toggle();
   }
 

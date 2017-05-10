@@ -1,5 +1,6 @@
 .card {
-  width: 250px;
+  max-width: 400px;
+  min-width: 250px;
   margin-bottom: 20px;
 }
 
@@ -8,6 +9,7 @@
   color: white;
   background-color: #7986cb;
 }
+
 .mat-card-image {
   margin-bottom: 0;
 }
@@ -19,13 +21,13 @@
   padding: 10px;
 }
 
-.contact-item-name{
+.contact-item-name {
   font-size: 16px;
   margin-bottom: 6px;
   font-weight: bold;
 }
 
-.contact-item-content{
+.contact-item-content {
   font-size: 14px;
   margin-bottom: 2px;
 }
