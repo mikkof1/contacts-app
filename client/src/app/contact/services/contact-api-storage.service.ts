@@ -1,17 +1,20 @@
 import {Injectable} from '@angular/core';
 import {Http} from "@angular/http";
 import {Contact} from "../contact";
+import {environment} from "../../../environments/environment";
+import 'rxjs/Rx';
 
 @Injectable()
 export class ContactApiStorageService {
 
-  url: string = "http://localhost:49478/api/contacts";
+  private url = environment.storageUrl + "/contacts";
 
   constructor(private http: Http) {
   }
 
   findContacts() {
-    return this.http.get(this.url).map(response => response.json() as Contact[]);
+    console.log('Read api contacts');
+    return this.http.get('http://localhost:49478/api/contacts').map(response => response.json() as Contact[]);
   }
 
   addNewContact(contact: Contact) {

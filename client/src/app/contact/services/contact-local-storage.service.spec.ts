@@ -25,7 +25,7 @@ describe('ContactLocalStorageService', () => {
     });
   });
 
-  // Local strage Mock
+  // Local storage Mock
   beforeEach(() => {
     let store = {};
 
@@ -55,14 +55,33 @@ describe('ContactLocalStorageService', () => {
     });
   }));
 
-  it('#addContact should return all contacts', inject([ContactLocalStorageService], (service: ContactLocalStorageService) => {
+  it('#addContact should get and set new contact and return all contacts', inject([ContactLocalStorageService], (service: ContactLocalStorageService) => {
     localStorage.setItem(localStorageKey, JSON.stringify(contactsArray));
     service.addNewContact(addContact).subscribe((contacts) => {
 
       expect(contacts.length).toBe(5);
       expect(contacts[contacts.length - 1].id).toEqual(9);
     });
+  }));
 
+  it('#editContact should edit contact and return all contacts', inject([ContactLocalStorageService], (service: ContactLocalStorageService) => {
+    localStorage.setItem(localStorageKey, JSON.stringify(contactsArray));
+    contactsArray[0].phone='555';
+    service.editContact(contactsArray[0]).subscribe((contacts: Contact[]) => {
+
+      expect(contacts.length).toBe(4);
+      expect(contacts[0].phone).toEqual('555');
+    });
+  }));
+
+
+  it('#deleteContact should delete contact and return all contacts', inject([ContactLocalStorageService], (service: ContactLocalStorageService) => {
+    localStorage.setItem(localStorageKey, JSON.stringify(contactsArray));
+    service.deleteContact(contactsArray[0]).subscribe((contacts: Contact[]) => {
+
+      expect(contacts.length).toBe(3);
+      expect(contacts[0].id).toEqual(2);
+    });
   }));
 
 

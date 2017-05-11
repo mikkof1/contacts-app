@@ -30,13 +30,13 @@ export class ContactsComponent implements OnInit {
 
   addNewContact(contact: Contact) {
     this.contactService.addNewContact(contact).subscribe(data => {
-      this.contactsList = data;
+      this.reloadContacts();
     });
   }
 
   editContact(contact: Contact) {
     this.contactService.editContact(contact).subscribe(data => {
-      this.contactsList = data;
+      this.reloadContacts();
     });
   }
 
@@ -47,7 +47,7 @@ export class ContactsComponent implements OnInit {
 
     if (question) {
       this.contactService.deleteContact(contact).subscribe(data => {
-        this.contactsList = data;
+        this.reloadContacts();
       });
     }
   }

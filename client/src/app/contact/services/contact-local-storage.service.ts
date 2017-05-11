@@ -6,7 +6,7 @@ import 'rxjs/add/observable/of';
 
 @Injectable()
 export class ContactLocalStorageService {
-  // private contacts: Contact[];
+
   private contactLocalStorageKey: string = 'ca-storageKey';
 
   constructor() {
@@ -60,7 +60,6 @@ export class ContactLocalStorageService {
   }
 
   private saveContactsToLocalStorage(contacts) {
-
     localStorage.setItem(this.contactLocalStorageKey, JSON.stringify(contacts));
   }
 
