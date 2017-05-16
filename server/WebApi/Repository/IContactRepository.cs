@@ -10,13 +10,13 @@ namespace WebApi.Repository
     {
         List<Contact> FindAll();
         void Create(Contact contact);
-
-
+        void Update(Contact contact);
+        void Delete(int id);
 
 
         //   Contact FindById(int id);
         //    
-        //   void Update(Contact contact);
-        //   void Delete(int id);
+        //   
+        //   
     }
 }

@@ -10,19 +10,11 @@ namespace WebApi.Services
     public class ContactService : IContactService
     {
         private readonly IContactRepository _repository;
-        private bool _testDataNeeded = true;
+
 
         public ContactService(IContactRepository repository)
         {
             _repository = repository;
-
-            if (_testDataNeeded)
-            {
-                _testDataNeeded = false;
-                List<Contact>
-
-            }
-
         }
 
         public List<Contact> FindAllContacts()
@@ -35,50 +27,20 @@ namespace WebApi.Services
             _repository.Create(contact);
         }
 
-
-
-
-
-
-
-        private List<Contact> TestContactsList()
+        public void UpdateContact(Contact contact)
         {
-            List<Contact> contactsList = new List<Contact>();
-
-            Contact con1 = new Contact
-            {
-                id = 1,
-                firstName = "Aku",
-                lastName = "Ankka",
-                phone = "456-789789",
-                address = "Paratiisitie 13",
-                city = "Ankkalinna"
-            };
-            contactsList.Add(con1);
-
-            Contact con2 = new Contact()
-            {
-                id = 2,
-                firstName = "Teppo",
-                lastName = "Tulppu",
-                phone = "456-123123",
-                address = "Paratiisitie 14",
-                city = "Ankkalinna"
-            };
-            contactsList.Add(con2);
-
-            Contact con3 = new Contact()
-            {
-                id = 3,
-                firstName = "Bruce",
-                lastName = "Wayne",
-                phone = "555-666 123",
-                address = "Wayne Manor",
-                city = "Gotham City"
-            };
-            contactsList.Add(con3);
-
-            return contactsList;
+            _repository.Update(contact);
         }
+
+        public void DeleteContact(int id)
+        {
+            _repository.Delete(id);
+        }
+
+
+
+
+
+
     }
 }

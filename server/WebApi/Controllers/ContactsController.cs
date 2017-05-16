@@ -17,31 +17,40 @@ namespace WebApi.Controllers
     public class ContactsController : Controller
     {
         private readonly Contact _contact = new Contact();
-        private readonly ContactsHandler _contactsHandler = new ContactsHandler();
+      //  private readonly ContactsHandler _contactsHandler = new ContactsHandler();
+        private IContactService _contactService;
+
+        public ContactsController(IContactService contactService)
+        {
+            _contactService = contactService;
+        }
 
         // GET api/values
         [HttpGet]
         public IEnumerable<Contact> Get()
         {
-            return _contactsHandler.GetList();
+           // return _contactsHandler.GetList();
+            return _contactService.FindAllContacts();
         }
 
         [HttpPost]
-        public int PostNewContact([FromBody] Contact contact)
+        public void PostNewContact([FromBody] Contact contact)
         {
-            return _contactsHandler.AddNewContact(contact);
+            _contactService.CreateContact(contact);
+            //  return _contactsHandler.AddNewContact(contact);
         }
-
+        
         [HttpDelete("{id}")]
-        public bool DeleteContact(int id)
+        public void DeleteContact(int id)
         {
-            return _contactsHandler.DeleteContact(id);
+            _contactService.DeleteContact(id);
         }
 
         [HttpPut]
-        public bool PutEditContact([FromBody] Contact contact)
+        public void PutEditContact([FromBody] Contact contact)
         {
-            return _contactsHandler.EditContact(contact);
+             _contactService.UpdateContact(contact);
         }
+       
     }
 }

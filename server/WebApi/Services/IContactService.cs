@@ -10,10 +10,13 @@ namespace WebApi.Services
     {
         List<Contact> FindAllContacts();
         void CreateContact(Contact contact);
+        void UpdateContact(Contact contact);
+        void DeleteContact(int id);
+
         //   Contact FindContactById(int id);
         //   
-        //   void UpdateContact(Contact contact);
-        //   void DeleteContact(int id);
+        //   
+        //   
 
     }
 }

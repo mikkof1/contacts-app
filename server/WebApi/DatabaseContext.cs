@@ -11,7 +11,6 @@ namespace WebApi
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
-
         }
 
         public DbSet<Contact> Contacts { get; set; }
