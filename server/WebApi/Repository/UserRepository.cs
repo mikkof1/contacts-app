@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using WebApi.Models;
 
 namespace WebApi.Repository
@@ -18,7 +19,7 @@ namespace WebApi.Repository
             if (_testDataNeeded)
             {
                 _testDataNeeded = false;
-                if (!_context.Contacts.Any())
+                if (!_context.Users.Any())
                 {
                     List<User> testList = TestUsersList();
                     foreach (User user in testList)
@@ -38,8 +39,11 @@ namespace WebApi.Repository
 
         public void Create(User user)
         {
-            _context.Add(user);
-            _context.SaveChanges();
+            if (user != null)
+            {
+                _context.Add(user);
+                _context.SaveChanges();
+            }
         }
 
 
@@ -47,7 +51,7 @@ namespace WebApi.Repository
         {
             List<User> returnList = new List<User>();
 
-            User user1=new User
+            User user1 = new User
             {
                 userName = "admin",
                 password = "admin",
@@ -61,7 +65,7 @@ namespace WebApi.Repository
                 password = "mikko",
                 email = "mikko@email.com"
             };
-            returnList.Add(user1);
+            returnList.Add(user2);
 
             return returnList;
         }

@@ -17,7 +17,7 @@ namespace WebApi.Controllers
     public class ContactsController : Controller
     {
         private readonly Contact _contact = new Contact();
-      //  private readonly ContactsHandler _contactsHandler = new ContactsHandler();
+
         private IContactService _contactService;
 
         public ContactsController(IContactService contactService)
@@ -29,7 +29,6 @@ namespace WebApi.Controllers
         [HttpGet]
         public IEnumerable<Contact> Get()
         {
-           // return _contactsHandler.GetList();
             return _contactService.FindAllContacts();
         }
 
@@ -37,7 +36,6 @@ namespace WebApi.Controllers
         public void PostNewContact([FromBody] Contact contact)
         {
             _contactService.CreateContact(contact);
-            //  return _contactsHandler.AddNewContact(contact);
         }
         
         [HttpDelete("{id}")]

@@ -9,16 +9,11 @@ namespace WebApi.Repository
     public class ContactRepository : IContactRepository
     {
         private readonly DatabaseContext _context;
-        private bool _testDataNeeded = true;
+        private readonly bool _testDataNeeded = true;
 
         public ContactRepository(DatabaseContext context)
         {
             _context = context;
-            //var con=new Contact();
-            //if (Create(con.firstName)=="mikko")
-            //{
-                
-            //}
 
             if (_testDataNeeded)
             {
@@ -43,14 +38,20 @@ namespace WebApi.Repository
 
         public void Create(Contact contact)
         {
-            _context.Contacts.Add(contact);
-            _context.SaveChanges();
+            if (contact != null)
+            {
+                _context.Contacts.Add(contact);
+                _context.SaveChanges();
+            }
         }
 
         public void Update(Contact contact)
         {
-            _context.Contacts.Update(contact);
-            _context.SaveChanges();
+            if (contact != null)
+            {
+                _context.Contacts.Update(contact);
+                _context.SaveChanges();
+            }
         }
 
         public void Delete(int id)
