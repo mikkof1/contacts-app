@@ -16,9 +16,14 @@ namespace WebApi.Services
             _userRepository = userRepository;
         }
 
-        public User FindAppUser(string userName, string password)
+        public User FindAppUserByNameAndPassword(string userName, string password)
         {
-            return _userRepository.FindUser(userName, password);
+            return _userRepository.FindUserByNameAndPassword(userName, password);
+        }
+
+        public User FindAppUserByName(string userName)
+        {
+            return _userRepository.FindUserByName(userName);
         }
 
         public void CreateAppUser(User user)

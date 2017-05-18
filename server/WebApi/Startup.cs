@@ -11,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using WebApi.Authentication;
 using WebApi.Repository;
 using WebApi.Services;
+using Microsoft.AspNetCore.Diagnostics;
 
 
 namespace WebApi
@@ -69,9 +70,9 @@ namespace WebApi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            var context = app.ApplicationServices.GetService<DatabaseContext>();
-            if (context.Database.EnsureCreated())
-                context.Database.Migrate();
+            var con = app.ApplicationServices.GetService<DatabaseContext>();
+            if (con.Database.EnsureCreated())
+                con.Database.Migrate();
 
             app.UseJwtBearerAuthentication(new JwtBearerOptions()
             {
@@ -85,6 +86,8 @@ namespace WebApi
                     ClockSkew = TimeSpan.FromMinutes(0)
                 }
             });
+
+
 
             app.UseMvc();
         }

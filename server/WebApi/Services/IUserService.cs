@@ -8,7 +8,8 @@ namespace WebApi.Services
 {
     public interface IUserService
     {
-        User FindAppUser(string userName, string password);
+        User FindAppUserByNameAndPassword(string userName, string password);
+        User FindAppUserByName(string userName);
         void CreateAppUser(User user);
     }
 }

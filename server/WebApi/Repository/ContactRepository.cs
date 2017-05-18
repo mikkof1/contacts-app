@@ -38,20 +38,14 @@ namespace WebApi.Repository
 
         public void Create(Contact contact)
         {
-            if (contact != null)
-            {
-                _context.Contacts.Add(contact);
-                _context.SaveChanges();
-            }
+            _context.Contacts.Add(contact);
+            _context.SaveChanges();
         }
 
         public void Update(Contact contact)
         {
-            if (contact != null)
-            {
-                _context.Contacts.Update(contact);
-                _context.SaveChanges();
-            }
+            _context.Contacts.Update(contact);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
@@ -62,11 +56,10 @@ namespace WebApi.Repository
                 _context.Remove(contact);
                 _context.SaveChanges();
             }
-            
+
         }
 
-
-
+        
         private List<Contact> TestContactsList()
         {
             List<Contact> contactsList = new List<Contact>();

@@ -29,7 +29,7 @@ namespace WebApi.Controllers
         {
             if (authRequest == null) { return Unauthorized(); }
 
-            User user = _userService.FindAppUser(authRequest.UserName, authRequest.Password);
+            User user = _userService.FindAppUserByNameAndPassword(authRequest.UserName, authRequest.Password);
             if (user != null)
             {
                 string token = GenerateToken(user);

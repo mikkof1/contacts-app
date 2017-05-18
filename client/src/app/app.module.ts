@@ -22,6 +22,7 @@ import {ContactApiStorageService}from './contact/services/contact-api-storage.se
 import {ContactLocalStorageService}from './contact/services/contact-local-storage.service';
 import { ContactNamePipe } from './contact/pipes/contact-name.pipe';
 import { VibrationDirective } from './contact/services/vibration.directive';
+import {HttpService}from './utils/http.service';
 
 const routes = [
   {
@@ -66,7 +67,8 @@ const routes = [
     DialogService,
     ContactApiStorageService,
     ContactLocalStorageService,
-    DeviceService
+    DeviceService,
+    HttpService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

@@ -31,19 +31,22 @@ namespace WebApi.Repository
             }
         }
 
-        public User FindUser(string userName, string password)
+        public User FindUserByNameAndPassword(string userName, string password)
         {
             User user = _context.Users.FirstOrDefault(u => u.userName == userName && u.password == password);
             return user;
         }
 
+        public User FindUserByName(string userName)
+        {
+            User user = _context.Users.FirstOrDefault(u => u.userName == userName);
+            return user;
+        }
+
         public void Create(User user)
         {
-            if (user != null)
-            {
-                _context.Add(user);
-                _context.SaveChanges();
-            }
+            _context.Add(user);
+            _context.SaveChanges();
         }
 
 
