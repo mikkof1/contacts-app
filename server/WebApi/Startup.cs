@@ -45,8 +45,8 @@ namespace WebApi
             //interfaces
             services.AddScoped<IContactService, ContactService>();
             services.AddScoped<IContactRepository, ContactRepository>();
-         //   services.AddScoped<IUserRepository, UserRepository>();
-
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
 
             // Add framework services.
             services.AddMvc();

@@ -6,10 +6,10 @@ using WebApi.Models;
 
 namespace WebApi.Repository
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly DatabaseContext _context;
-        private bool _testDataNeeded = true;
+        private readonly bool _testDataNeeded = true;
 
         public UserRepository(DatabaseContext context)
         {

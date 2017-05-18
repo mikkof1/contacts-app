@@ -14,6 +14,11 @@ namespace WebApi.Repository
         public ContactRepository(DatabaseContext context)
         {
             _context = context;
+            //var con=new Contact();
+            //if (Create(con.firstName)=="mikko")
+            //{
+                
+            //}
 
             if (_testDataNeeded)
             {
