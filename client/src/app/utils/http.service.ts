@@ -1,5 +1,14 @@
 import {Injectable} from '@angular/core';
-import {Http, ConnectionBackend, RequestOptions, RequestOptionsArgs, Response, Headers, Request} from "@angular/http";
+import {
+  Http,
+  ConnectionBackend,
+  RequestOptions,
+  RequestOptionsArgs,
+  Response,
+  Headers,
+  Request,
+  XHRBackend
+} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 
 @Injectable()
@@ -7,7 +16,7 @@ export class HttpService extends Http {
 
   private authToken: string;
 
-  constructor(private backend: ConnectionBackend, private options: RequestOptions) {
+  constructor(private backend: ConnectionBackend, options: RequestOptions) {
     super(backend, options);
   }
 
@@ -17,10 +26,10 @@ export class HttpService extends Http {
       if (!options) {
         options = {headers: new Headers()};
       }
-      options.headers.set('Authorization', 'Bearer ${token}');
+      options.headers.set('Authorization', 'Bearer' + this.authToken);
     }
     else {
-      url.headers.set('Authorization', 'Bearer ${token}');
+      url.headers.set('Authorization', 'Bearer' + this.authToken);
     }
 
     return this.intercept(super.request(url, options));
@@ -34,10 +43,15 @@ export class HttpService extends Http {
   }
 
   post(url: string, body: any, options?: RequestOptionsArgs, skipInterceptor?: boolean): Observable<Response> {
+    console.log('post open');
     if (skipInterceptor) {
+      console.log('skip Interceptor');
       return super.post(url, body, options);
     }
-    return this.intercept(super.post(url, body, options));
+    else {
+      console.log('With Interceptor');
+      return this.intercept(super.post(url, body, options));
+    }
   }
 
   saveToken(token: string) {
@@ -46,8 +60,8 @@ export class HttpService extends Http {
 
   private intercept(observable: Observable<Response>): Observable<Response> {
     return observable.catch((error: Response) => {
-      if (error.status == 401) {
-        console.log(error.status + ' ' + error.statusText);
+      if (error.status == 401 || error.status == 403) {
+        console.log('New error: '+error.status + ' ' + error.statusText);
       }
       return Observable.throw(error);
     });

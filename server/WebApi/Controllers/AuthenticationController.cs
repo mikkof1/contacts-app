@@ -9,12 +9,14 @@ using Newtonsoft.Json;
 using WebApi.Authentication;
 using WebApi.Services;
 using WebApi.Models;
+using Microsoft.AspNetCore.Cors;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WebApi.Controllers
 {
     [Route("api/auth")]
+    [EnableCors("CorsPolicy")]
     public class AuthenticationController : Controller
     {
         private readonly IUserService _userService;
