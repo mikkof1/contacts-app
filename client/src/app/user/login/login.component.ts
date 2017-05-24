@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {AuthenticationService} from "../servises/authentication.service";
 import {environment} from "../../../environments/environment";
+import {UserService} from "../servises/user.service";
+import {User} from "../user";
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'app-login',
@@ -13,33 +15,32 @@ export class LoginComponent implements OnInit {
   account: string;
   password: string;
 
-  constructor(private router: Router, private authService: AuthenticationService) { //
+  constructor(private router: Router, private userService: UserService, private comp: AppComponent) {
+
   }
 
   ngOnInit() {
-    console.log('login avattu');
   }
 
   openContactsPage() {
-    console.log('täst lähteeee');
 
     let useApiStorage: boolean = environment.envName == 'api';
     if (this.account && this.password) {
       if (useApiStorage) {
-        this.authService.signIn(this.account, this.password).subscribe(data => {
-          console.log("this just came up: " + data);
+        this.userService.signUserIn(this.account, this.password).subscribe(data => {
+          this.comp.user = data.json();
+
+          this.router.navigate(['contacts']);
+
         });
+
       }
       else {
-         this.router.navigate(['contacts'])
+        this.router.navigate(['contacts']);
       }
     }
 
   }
-
-
-
-
 
 
 }

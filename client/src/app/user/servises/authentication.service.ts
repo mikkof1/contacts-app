@@ -10,19 +10,17 @@ export class AuthenticationService {
   private url = environment.storageUrl + "/auth";
 
 
-  constructor(private http: HttpService) {//
+  constructor(private http: HttpService) {
 
   }
 
   signIn(userName: string, password: string) {
-    console.log('signIn now');
     return this.http.post(this.url, {
-      userName:userName,
-      password:password
+      UserName:userName,
+      Password:password
     }).map((response: Response) => {
       let data = response.json();
       this.http.saveToken(data.token);
-      console.log("tookkeni: " + data.token);
       return data.id;
     });
 

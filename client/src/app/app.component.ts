@@ -1,6 +1,7 @@
 import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {Router, NavigationEnd} from "@angular/router";
 import {MdSidenav} from "@angular/material";
+import {User} from "./user/user";
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,8 @@ export class AppComponent {
 
   sidenavMode: string;
   toolbarDisabled: boolean;
+  user: User = {id: 0, userName: 'Name', password: 'pass', email: 'emil'};
+
 
   @ViewChild('sidenav') sidenav: MdSidenav;
 

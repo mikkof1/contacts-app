@@ -4,8 +4,8 @@
               [opened]="sidenavMode == 'side'">
     <div class="sidenav-items">
       <md-icon class="md-48, login-icon">account_circle</md-icon>
-      <div class="login-name">User name</div>
-      <div class="login-mail">User email</div>
+      <div class="login-name">{{user.userName}}</div>
+      <div class="login-mail">{{user.email}}</div>
     </div>
     <button md-icon-button (click)="navigateHome(sidenav)">
       <md-icon>home</md-icon>

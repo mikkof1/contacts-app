@@ -16,7 +16,7 @@ namespace WebApi.Controllers
     [Authorize("Bearer")]
     public class UserController : Controller
     {
-        private IUserService _userService;
+        private readonly IUserService _userService;
 
         public UserController(IUserService userService)
         {

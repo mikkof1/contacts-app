@@ -32,6 +32,7 @@ import {ContactLocalStorageService}from './contact/services/contact-local-storag
 import { ContactNamePipe } from './contact/pipes/contact-name.pipe';
 import {ContactAddressPipe} from './contact/pipes/contact-address.pipe';
 import {AuthenticationService} from "./user/servises/authentication.service";
+import {UserService} from "./user/servises/user.service";
 
 
 
@@ -88,7 +89,8 @@ export function getHttp(backend: ConnectionBackend, options: RequestOptions) {
     ContactApiStorageService,
     ContactLocalStorageService,
     DeviceService,
-    AuthenticationService
+    AuthenticationService,
+    UserService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

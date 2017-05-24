@@ -10,13 +10,14 @@ import {
   XHRBackend
 } from "@angular/http";
 import {Observable} from "rxjs/Observable";
+import {Router} from "@angular/router";
 
 @Injectable()
 export class HttpService extends Http {
 
   private authToken: string;
 
-  constructor(private backend: ConnectionBackend, options: RequestOptions) {
+  constructor(private backend: ConnectionBackend, options: RequestOptions, private router?: Router) {
     super(backend, options);
   }
 
@@ -26,10 +27,10 @@ export class HttpService extends Http {
       if (!options) {
         options = {headers: new Headers()};
       }
-      options.headers.set('Authorization', 'Bearer' + this.authToken);
+      options.headers.set('Authorization', 'Bearer ' + this.authToken);
     }
     else {
-      url.headers.set('Authorization', 'Bearer' + this.authToken);
+      url.headers.set('Authorization', 'Bearer ' + this.authToken);
     }
 
     return this.intercept(super.request(url, options));
@@ -43,13 +44,10 @@ export class HttpService extends Http {
   }
 
   post(url: string, body: any, options?: RequestOptionsArgs, skipInterceptor?: boolean): Observable<Response> {
-    console.log('post open');
     if (skipInterceptor) {
-      console.log('skip Interceptor');
       return super.post(url, body, options);
     }
     else {
-      console.log('With Interceptor');
       return this.intercept(super.post(url, body, options));
     }
   }
@@ -61,7 +59,9 @@ export class HttpService extends Http {
   private intercept(observable: Observable<Response>): Observable<Response> {
     return observable.catch((error: Response) => {
       if (error.status == 401 || error.status == 403) {
-        console.log('New error: '+error.status + ' ' + error.statusText);
+        this.router.navigate(['login']);
+        console.log('authentication error: ' + error.status + ' ' + error.statusText);
+
       }
       return Observable.throw(error);
     });

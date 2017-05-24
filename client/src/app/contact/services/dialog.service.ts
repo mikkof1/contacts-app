@@ -12,7 +12,6 @@ export class DialogService {
   }
 
   public contactDialog(contact?: Contact) {
-    console.log('This is dialog service contactDialog method message :)');
     let dialogRef = this.dialog.open(ContactDialogComponent);
     dialogRef.componentInstance.contactInn = contact;
     return dialogRef.afterClosed();
