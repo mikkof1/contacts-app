@@ -1,4 +1,3 @@
-
 <div fxLayout="column" fxLayoutAlign="center center">
   <md-card class="loginCard">
 
@@ -7,7 +6,7 @@
     <md-card-title id="loginTitle">Contacts app</md-card-title>
 
     <br>
-
+    <div class="error-text">{{errorText}}</div>
     <div md-dialog-content fxLayout="column">
       <div fxLayout="row" fxLayoutAlign="center center">
         <md-icon class="md-36" class="cardIcon">account_circle</md-icon>
@@ -29,7 +28,8 @@
       </div>
 
       <div class="contact-dialog-action">
-        <button (click)="openContactsPage()" class="btnSignIn" [disabled]="!account || !password" md-raised-button caVibration >Login
+        <button (click)="openContactsPage()" class="btnSignIn" [disabled]="!account || !password" md-raised-button
+                caVibration>Login
         </button>
       </div>
 

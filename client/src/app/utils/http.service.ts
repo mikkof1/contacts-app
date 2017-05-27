@@ -6,18 +6,18 @@ import {
   RequestOptionsArgs,
   Response,
   Headers,
-  Request,
-  XHRBackend
+  Request
 } from "@angular/http";
 import {Observable} from "rxjs/Observable";
-import {Router} from "@angular/router";
+
 
 @Injectable()
 export class HttpService extends Http {
 
   private authToken: string;
+  private loggedIn: boolean;
 
-  constructor(private backend: ConnectionBackend, options: RequestOptions, private router?: Router) {
+  constructor(private backend: ConnectionBackend, options: RequestOptions) {
     super(backend, options);
   }
 
@@ -53,15 +53,19 @@ export class HttpService extends Http {
   }
 
   saveToken(token: string) {
+    this.loggedIn = true;
     this.authToken = token;
+  }
+
+  isLoggedIn() {
+    return this.loggedIn;
   }
 
   private intercept(observable: Observable<Response>): Observable<Response> {
     return observable.catch((error: Response) => {
       if (error.status == 401 || error.status == 403) {
-        this.router.navigate(['login']);
+        this.loggedIn = false;
         console.log('authentication error: ' + error.status + ' ' + error.statusText);
-
       }
       return Observable.throw(error);
     });

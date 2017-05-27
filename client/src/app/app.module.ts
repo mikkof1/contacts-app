@@ -56,7 +56,7 @@ export function getHttp(backend: ConnectionBackend, options: RequestOptions) {
   return new HttpService(backend, options);
 }
 
-@NgModule({
+  @NgModule({
   declarations: [
     AppComponent,
     ContactListComponent,

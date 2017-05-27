@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ContactService} from "./services/contact.service";
 import {DialogService} from "./services/dialog.service";
 import {Contact} from "./contact";
+import {Router} from "@angular/router";
+import {HttpService} from "../utils/http.service";
 
 @Component({
   selector: 'app-contacts',
@@ -13,7 +15,7 @@ export class ContactsComponent implements OnInit {
 
   contactsList: Contact[];
 
-  constructor(private contactService: ContactService, private dialogService: DialogService) {
+  constructor(private contactService: ContactService, private dialogService: DialogService, private router: Router, private http:HttpService) {
     this.reloadContacts();
   }
 
@@ -22,26 +24,29 @@ export class ContactsComponent implements OnInit {
   }
 
   reloadContacts() {
+this.isAutorized();
     this.contactService.findAllContacts().subscribe(data => {
-      console.log('data: ' + data);
       this.contactsList = data;
     });
   }
 
   addNewContact(contact: Contact) {
+    this.isAutorized();
     this.contactService.addNewContact(contact).subscribe(data => {
       this.reloadContacts();
     });
   }
 
   editContact(contact: Contact) {
+    this.isAutorized();
     this.contactService.editContact(contact).subscribe(data => {
       this.reloadContacts();
     });
   }
 
   deleteContact(contact: Contact) {
-   // navigator.vibrate(1000);
+    this.isAutorized();
+    // navigator.vibrate(1000);
     let question = confirm('Do you realy want to delete this contact: '
       + contact.firstName + ' ' + contact.lastName);
 
@@ -53,7 +58,8 @@ export class ContactsComponent implements OnInit {
   }
 
   openDialog(contact?: Contact) {
-  //  navigator.vibrate([400,300,400,300]);
+    this.isAutorized();
+    //  navigator.vibrate([400,300,400,300]);
     let returnValue = this.dialogService.contactDialog(contact);
     returnValue.subscribe(returnContact => {
       if (!returnContact) {
@@ -73,5 +79,10 @@ export class ContactsComponent implements OnInit {
     this.dialogService.openMap(contact);
   }
 
+  private isAutorized(){
+    if(!this.http.isLoggedIn()){
+      this.router.navigate(['login']);
+    }
+  }
 
 }
