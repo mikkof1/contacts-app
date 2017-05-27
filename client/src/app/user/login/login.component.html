@@ -7,23 +7,27 @@
 
     <br>
     <div class="error-text">{{errorText}}</div>
+
     <div md-dialog-content fxLayout="column">
       <div fxLayout="row" fxLayoutAlign="center center">
         <md-icon class="md-36" class="cardIcon">account_circle</md-icon>
 
         <md-input-container floatPlaceholder="auto">
-          <input mdInput [(ngModel)]="account" type="text"
-                 placeholder="Username">
+          <input mdInput [(ngModel)]="account"
+                 type="text"
+                 placeholder="Username"
+                 (keyup.enter)="openContactsPage()">
         </md-input-container>
       </div>
-
 
       <div fxLayout="row" fxLayoutAlign="center center">
         <md-icon class="md-36" class="cardIcon">lock</md-icon>
 
         <md-input-container floatPlaceholder="auto">
-          <input mdInput [(ngModel)]="password" type="password"
-                 placeholder="Password">
+          <input mdInput [(ngModel)]="password"
+                 type="password"
+                 placeholder="Password"
+                 (keyup.enter)="openContactsPage()">
         </md-input-container>
       </div>
 

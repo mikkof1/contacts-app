@@ -2,9 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {environment} from "../../../environments/environment";
 import {UserService} from "../servises/user.service";
-import {User} from "../user";
 import {AppComponent} from "../../app.component";
-import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-login',
@@ -31,7 +29,6 @@ export class LoginComponent implements OnInit {
       if (useApiStorage) {
         this.userService.signUserIn(this.account, this.password).subscribe(data => {
           this.app.user = data.json();
-          console.log('tällästä: ' + data);
           this.router.navigate(['contacts']);
 
         }, error => {
