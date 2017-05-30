@@ -3,20 +3,15 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Principal;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Razor.CodeGenerators;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
 using WebApi.Authentication;
 using WebApi.Services;
 using WebApi.Models;
-using Microsoft.AspNetCore.Cors;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WebApi.Controllers
 {
     [Route("api/auth")]
-    [EnableCors("CorsPolicy")]
     public class AuthenticationController : Controller
     {
         private readonly IUserService _userService;
@@ -25,6 +20,7 @@ namespace WebApi.Controllers
         {
             _userService = userService;
         }
+
 
         [HttpPost]
         public IActionResult PostGetAuthToken([FromBody]AuthRequest authRequest)
@@ -40,6 +36,7 @@ namespace WebApi.Controllers
 
             return Unauthorized();
         }
+
 
         private string GenerateToken(User user)
         {

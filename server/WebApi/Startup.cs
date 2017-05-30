@@ -11,7 +11,6 @@ using Microsoft.IdentityModel.Tokens;
 using WebApi.Authentication;
 using WebApi.Repository;
 using WebApi.Services;
-using Microsoft.AspNetCore.Diagnostics;
 
 
 namespace WebApi
@@ -33,8 +32,6 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-        //    var config = Configuration.GetSection("AppSettings").Get<AppSettings>();
-       //     services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
             services.AddApplicationInsightsTelemetry(Configuration);
 
@@ -93,7 +90,7 @@ namespace WebApi
                 }
             });
 
-
+            app.UseCors("CorsPolicy");
 
             app.UseMvc();
         }

@@ -4,6 +4,8 @@ import {DialogService} from "./services/dialog.service";
 import {Contact} from "./contact";
 import {Router} from "@angular/router";
 import {HttpService} from "../utils/http.service";
+import {environment} from "../../environments/environment";
+
 
 @Component({
   selector: 'app-contacts',
@@ -15,7 +17,7 @@ export class ContactsComponent implements OnInit {
 
   contactsList: Contact[];
 
-  constructor(private contactService: ContactService, private dialogService: DialogService, private router: Router, private http:HttpService) {
+  constructor(private contactService: ContactService, private dialogService: DialogService, private router: Router, private http: HttpService) {
     this.reloadContacts();
   }
 
@@ -24,17 +26,18 @@ export class ContactsComponent implements OnInit {
   }
 
   reloadContacts() {
-this.isAutorized();
+    this.isAutorized();
     this.contactService.findAllContacts().subscribe(data => {
       this.contactsList = data;
     });
   }
 
   addNewContact(contact: Contact) {
-    this.isAutorized();
-    this.contactService.addNewContact(contact).subscribe(data => {
-      this.reloadContacts();
-    });
+    if (this.isAutorized()) {
+      this.contactService.addNewContact(contact).subscribe(data => {
+        this.reloadContacts();
+      });
+    }
   }
 
   editContact(contact: Contact) {
@@ -47,7 +50,7 @@ this.isAutorized();
   deleteContact(contact: Contact) {
     this.isAutorized();
     // navigator.vibrate(1000);
-    let question = confirm('Do you realy want to delete this contact: '
+    let question = confirm('Do you really want to delete this contact: '
       + contact.firstName + ' ' + contact.lastName);
 
     if (question) {
@@ -58,31 +61,37 @@ this.isAutorized();
   }
 
   openDialog(contact?: Contact) {
-    this.isAutorized();
-    //  navigator.vibrate([400,300,400,300]);
-    let returnValue = this.dialogService.contactDialog(contact);
-    returnValue.subscribe(returnContact => {
-      if (!returnContact) {
-        return;
-      }
-      if (returnContact.id) {
-        this.editContact(returnContact);
-      }
-      else {
-        this.addNewContact(returnContact);
-      }
-    });
-
+    if (this.isAutorized()) {
+      //  navigator.vibrate([400,300,400,300]);
+      let returnValue = this.dialogService.contactDialog(contact);
+      returnValue.subscribe(returnContact => {
+        if (!returnContact) {
+          return;
+        }
+        if (returnContact.id) {
+          this.editContact(returnContact);
+        }
+        else {
+          this.addNewContact(returnContact);
+        }
+      });
+    }
   }
 
   showMap(contact: Contact) {
-    this.dialogService.openMap(contact);
+    if (this.isAutorized()) {
+      this.dialogService.openMap(contact);
+    }
   }
 
-  private isAutorized(){
-    if(!this.http.isLoggedIn()){
-      this.router.navigate(['login']);
+  private isAutorized() {
+    if (environment.envName == 'api') {
+      if (!this.http.isLoggedIn()) {
+        this.router.navigate(['login']);
+        return false;
+      }
     }
+    return true;
   }
 
 }

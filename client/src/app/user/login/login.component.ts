@@ -32,11 +32,17 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['contacts']);
 
         }, error => {
-          this.errorText = 'Wrong Username or Password';
+          if(error.status==401||error.status==403) {
+            this.errorText = 'Wrong Username or Password';
+          }
+          else{
+            this.errorText ='Oops, something went wrong';
+          }
           console.log('error login: ' + error.status + ' ' + error.statusText);
         });
       }
       else { //local strorage use
+        console.log('local use only');
         this.router.navigate(['contacts']);
       }
     }

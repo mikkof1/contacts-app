@@ -1,8 +1,8 @@
 .contact-Dialog-Body{
   width: 260px;
   height: 400px;
-
 }
+
 .dialog-inputs input{
   width: 260px;
 }
@@ -16,9 +16,11 @@
 .btnSave{
   float: left;
 }
+
 .btnClose{
   float: right;
 }
+
 .contact-dialog-action{
 margin-top: 20px;
 }

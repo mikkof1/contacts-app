@@ -3,7 +3,6 @@ import {environment} from "../../../environments/environment";
 import {AuthenticationService} from "./authentication.service";
 import {HttpService} from "../../utils/http.service";
 import {Observable} from "rxjs/Observable";
-import {observable} from "rxjs/symbol/observable";
 
 @Injectable()
 export class UserService {
@@ -16,7 +15,11 @@ export class UserService {
   signUserIn(userName: string, password: string) {
     return this.authService.signIn(userName, password).flatMap(() => {
       return this.http.put(this.url, null);
+    }).catch(error => {
+      console.log('AuthService error: ' + error.status + ' ' + error.statusText);
+      return Observable.throw(error);
     });
   }
+
 
 }

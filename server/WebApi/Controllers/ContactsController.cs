@@ -1,20 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Models;
 using WebApi.Services;
-using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Primitives;
 
 namespace WebApi.Controllers
 {
     [Route("api/contacts")]
-    [EnableCors("CorsPolicy")]
     [Authorize("Bearer")]
     public class ContactsController : Controller
     {

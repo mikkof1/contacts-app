@@ -15,6 +15,8 @@ import {Observable} from "rxjs/Observable";
 export class HttpService extends Http {
 
   private authToken: string;
+  private authHeader: string = 'Authorization';
+  private authBearer: string = 'Bearer ';
   private loggedIn: boolean;
 
   constructor(private backend: ConnectionBackend, options: RequestOptions) {
@@ -27,10 +29,10 @@ export class HttpService extends Http {
       if (!options) {
         options = {headers: new Headers()};
       }
-      options.headers.set('Authorization', 'Bearer ' + this.authToken);
+      options.headers.set(this.authHeader, this.authBearer + this.authToken);
     }
     else {
-      url.headers.set('Authorization', 'Bearer ' + this.authToken);
+      url.headers.set(this.authHeader, this.authBearer + this.authToken);
     }
 
     return this.intercept(super.request(url, options));
@@ -61,11 +63,16 @@ export class HttpService extends Http {
     return this.loggedIn;
   }
 
+  signOut() {
+    this.loggedIn = false;
+    this.authToken = '';
+  }
+
   private intercept(observable: Observable<Response>): Observable<Response> {
     return observable.catch((error: Response) => {
       if (error.status == 401 || error.status == 403) {
         this.loggedIn = false;
-        console.log('authentication error: ' + error.status + ' ' + error.statusText);
+        console.log('Authentication error: ' + error.status + ' ' + error.statusText);
       }
       return Observable.throw(error);
     });

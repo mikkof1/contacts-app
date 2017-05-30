@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using WebApi.Models;
 
 namespace WebApi.Repository
@@ -9,7 +8,7 @@ namespace WebApi.Repository
     public class ContactRepository : IContactRepository
     {
         private readonly DatabaseContext _context;
-        private readonly bool _testDataNeeded = true;
+        private readonly bool _testDataNeeded = false;
 
         public ContactRepository(DatabaseContext context)
         {
