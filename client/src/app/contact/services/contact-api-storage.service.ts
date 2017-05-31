@@ -13,7 +13,7 @@ export class ContactApiStorageService {
   }
 
   findContacts() {
-    return this.http.get('http://localhost:49478/api/contacts').map(response => response.json() as Contact[]);
+    return this.http.get(this.url).map(response => response.json() as Contact[]);
   }
 
   addNewContact(contact: Contact) {

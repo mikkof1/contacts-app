@@ -8,3 +8,4 @@ obj
 /cordova/plugins
 /cordova/www
 /cordova/platforms
+/server/WebApi/appsettings.json
