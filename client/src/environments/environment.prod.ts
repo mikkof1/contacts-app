@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  envName:'production',
-  storageUrl:''
+  envName:'api',
+  storageUrl:'http://webapicontactekoodi17.azurewebsites.net/api'
 };

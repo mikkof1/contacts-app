@@ -24,12 +24,12 @@ export class ContactDialogComponent implements OnInit {
 
   contact: Contact = new Contact();
 
-  constructor(private dialogRef: MdDialogRef<ContactDialogComponent>) {
+  constructor(public dialogRef: MdDialogRef<ContactDialogComponent>) {
 
   }
 
   ngOnInit() {
-    console.log('dialog read contact');
+   // console.log('dialog read contact');
     if (this.contactInn) {
       this.title = 'Edit Contact';
       this.btnSaveText = 'Save';
