@@ -85,7 +85,7 @@ export class ContactsComponent implements OnInit {
   }
 
   private isAutorized() {
-    if (environment.envName == 'api') {
+    if (environment.envName != 'local') {
       if (!this.http.isLoggedIn()) {
         this.router.navigate(['login']);
         return false;
