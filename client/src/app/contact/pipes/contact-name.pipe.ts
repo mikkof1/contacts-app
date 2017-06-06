@@ -9,10 +9,10 @@ export class ContactNamePipe implements PipeTransform {
 
   transform(contact: Contact, args?: any): any {
 
-    let addressParts = [contact.firstName || null, contact.lastName || null];
-    addressParts = _.reject(addressParts, _.isNull);
+    let parts = [contact.firstName || null, contact.lastName || null];
+    parts = _.reject(parts, _.isNull);
 
-    return addressParts.join(' ');
+    return parts.join(' ');
   }
 
 }

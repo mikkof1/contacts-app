@@ -17,7 +17,7 @@ export class HttpService extends Http {
   private authToken: string;
   private authHeader: string = 'Authorization';
   private authBearer: string = 'Bearer ';
-  private loggedIn: boolean;
+//  private loggedIn: boolean;
 
   constructor(private backend: ConnectionBackend, options: RequestOptions) {
     super(backend, options);
@@ -55,10 +55,10 @@ export class HttpService extends Http {
   }
 
   saveToken(token: string) {
-    this.loggedIn = true;
+  //  this.loggedIn = true;
     this.authToken = token;
   }
-
+/*
   isLoggedIn() {
     return this.loggedIn;
   }
@@ -67,12 +67,14 @@ export class HttpService extends Http {
     this.loggedIn = false;
     this.authToken = '';
   }
-
+*/
   private intercept(observable: Observable<Response>): Observable<Response> {
     return observable.catch((error: Response) => {
       if (error.status == 401 || error.status == 403) {
-        this.loggedIn = false;
+     //  navigate
         console.log('Authentication error: ' + error.status + ' ' + error.statusText);
+      }else{
+
       }
       return Observable.throw(error);
     });

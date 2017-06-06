@@ -3,8 +3,9 @@ import {ContactService} from "./services/contact.service";
 import {DialogService} from "./services/dialog.service";
 import {Contact} from "./contact";
 import {Router} from "@angular/router";
-import {HttpService} from "../utils/http.service";
 import {environment} from "../../environments/environment";
+import {UserService} from "../user/servises/user.service";
+import * as _ from 'lodash';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class ContactsComponent implements OnInit {
 
   contactsList: Contact[];
 
-  constructor(private contactService: ContactService, private dialogService: DialogService, private router: Router, private http: HttpService) {
+  constructor(private contactService: ContactService, private dialogService: DialogService, private router: Router, private userService: UserService) {
     this.reloadContacts();
   }
 
@@ -28,7 +29,11 @@ export class ContactsComponent implements OnInit {
   reloadContacts() {
     this.isAutorized();
     this.contactService.findAllContacts().subscribe(data => {
-      this.contactsList = data;
+
+    let sortedData =  _.sortBy(data, [function (user) {
+        return user.firstName;
+      }]);
+      this.contactsList = sortedData;
     });
   }
 
@@ -86,7 +91,7 @@ export class ContactsComponent implements OnInit {
 
   private isAutorized() {
     if (environment.envName != 'local') {
-      if (!this.http.isLoggedIn()) {
+      if (!this.userService.isLoggedIn()) {
         this.router.navigate(['login']);
         return false;
       }

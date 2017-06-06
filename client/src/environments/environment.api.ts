@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
   envName:'api',
-  storageUrl:'http://webapicontactekoodi17.azurewebsites.net/api'
+  storageUrl:'http://localhost:49478/api'
 };

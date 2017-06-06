@@ -9,7 +9,7 @@ import {RouterModule} from '@angular/router'
 import {ConnectionBackend, HttpModule, RequestOptions, XHRBackend} from '@angular/http';
 
 // other modules
-import { VibrationDirective } from './contact/services/vibration.directive';
+import { VibrationDirective } from './utils/vibration.directive';
 
 // components
 import {AppComponent} from './app.component';
@@ -23,7 +23,7 @@ import {LoginComponent} from './user/login/login.component';
 // services
 import {ContactService} from "./contact/services/contact.service";
 import {DialogService} from "./contact/services/dialog.service";
-import {DeviceService} from "./contact/services/device.service";
+import {DeviceService} from "./utils/device.service";
 import {HttpService}from './utils/http.service';
 import {ContactApiStorageService}from './contact/services/contact-api-storage.service';
 import {ContactLocalStorageService}from './contact/services/contact-local-storage.service';
