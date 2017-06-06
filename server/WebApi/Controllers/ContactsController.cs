@@ -11,7 +11,6 @@ namespace WebApi.Controllers
     [Authorize("Bearer")]
     public class ContactsController : Controller
     {
-        private readonly Contact _contact = new Contact();
 
         private IContactService _contactService;
 
@@ -20,7 +19,6 @@ namespace WebApi.Controllers
             _contactService = contactService;
         }
 
-        // GET api/values
         [HttpGet]
         public IEnumerable<Contact> Get()
         {

@@ -5,6 +5,12 @@ using WebApi.Models;
 using System.IO;
 using Newtonsoft.Json;
 
+// ***************************************************************************************** 
+
+    // This Class is old and it do now nothing, but I want to save it for me for educational use
+
+// ***************************************************************************************** 
+
 namespace WebApi.Services
 {
     public class ContactsHandler

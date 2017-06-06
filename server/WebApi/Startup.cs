@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -17,8 +18,12 @@ namespace WebApi
 {
     public class Startup
     {
+        private string _connectionString = "AzureConnection";
+
         public Startup(IHostingEnvironment env)
         {
+            GetLocalConnectionString();
+
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -32,12 +37,11 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddApplicationInsightsTelemetry(Configuration);
 
             // database
             services.AddDbContext<DatabaseContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString(_connectionString)));
 
             //interfaces
             services.AddScoped<IContactService, ContactService>();
@@ -94,5 +98,12 @@ namespace WebApi
 
             app.UseMvc();
         }
+
+        [Conditional("DEBUG")]
+        private void GetLocalConnectionString()
+        {
+            _connectionString = "LocalConnection";
+        }
+
     }
 }
