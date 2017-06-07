@@ -10,6 +10,7 @@ import {ConnectionBackend, HttpModule, RequestOptions, XHRBackend} from '@angula
 
 // other modules
 import { VibrationDirective } from './utils/vibration.directive';
+import {NgPipesModule} from 'ngx-pipes';
 
 // components
 import {AppComponent} from './app.component';
@@ -76,7 +77,8 @@ export function getHttp(backend: ConnectionBackend, options: RequestOptions) {
     MaterialModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgPipesModule
   ],
   providers: [
     {

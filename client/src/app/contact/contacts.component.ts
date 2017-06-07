@@ -29,11 +29,7 @@ export class ContactsComponent implements OnInit {
   reloadContacts() {
     this.isAutorized();
     this.contactService.findAllContacts().subscribe(data => {
-
-    let sortedData =  _.sortBy(data, [function (user) {
-        return user.firstName;
-      }]);
-      this.contactsList = sortedData;
+      this.contactsList = data;
     });
   }
 

@@ -1,4 +1,5 @@
-<div class="contacts-items" fxLayout="column" fxLayoutAlign="space-around center" *ngFor="let contact of contacts">
+<div class="contacts-items" fxLayout="column" fxLayoutAlign="space-around center"
+     *ngFor="let contact of contacts | orderBy: 'firstName'">
 
   <app-contact-list-item [contact]="contact"
                          (remove)="deleteContactListItem($event)"
