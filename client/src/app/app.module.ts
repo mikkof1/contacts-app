@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {MaterialModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {RouterModule} from '@angular/router'
+import {Router, RouterModule} from '@angular/router'
 import {ConnectionBackend, HttpModule, RequestOptions, XHRBackend} from '@angular/http';
 
 // other modules
@@ -53,8 +53,8 @@ const routes = [
   }
 ];
 
-export function getHttp(backend: ConnectionBackend, options: RequestOptions) {
-  return new HttpService(backend, options);
+export function getHttp(backend: ConnectionBackend, options: RequestOptions, router: Router) {
+  return new HttpService(backend, options, router);
 }
 
   @NgModule({
@@ -84,7 +84,7 @@ export function getHttp(backend: ConnectionBackend, options: RequestOptions) {
     {
       provide: HttpService,
       useFactory: getHttp,
-      deps: [XHRBackend, RequestOptions]
+      deps: [XHRBackend, RequestOptions, Router]
     },
     ContactService,
     DialogService,

@@ -9,6 +9,7 @@ import {
   Request
 } from "@angular/http";
 import {Observable} from "rxjs/Observable";
+import {Router} from "@angular/router";
 
 
 @Injectable()
@@ -17,9 +18,8 @@ export class HttpService extends Http {
   private authToken: string;
   private authHeader: string = 'Authorization';
   private authBearer: string = 'Bearer ';
-//  private loggedIn: boolean;
 
-  constructor(private backend: ConnectionBackend, options: RequestOptions) {
+  constructor(private backend: ConnectionBackend, options: RequestOptions, private router: Router) {
     super(backend, options);
   }
 
@@ -55,29 +55,31 @@ export class HttpService extends Http {
   }
 
   saveToken(token: string) {
-  //  this.loggedIn = true;
     this.authToken = token;
   }
-/*
-  isLoggedIn() {
-    return this.loggedIn;
-  }
 
-  signOut() {
-    this.loggedIn = false;
-    this.authToken = '';
-  }
-*/
   private intercept(observable: Observable<Response>): Observable<Response> {
     return observable.catch((error: Response) => {
       if (error.status == 401 || error.status == 403) {
-     //  navigate
-        console.log('Authentication error: ' + error.status + ' ' + error.statusText);
-      }else{
-
+        return this.unAuhorized(error);
       }
-      return Observable.throw(error);
+      else {
+        return this.forbidden(error);
+      }
     });
   }
+
+  private unAuhorized(error: any) {
+    console.log('Authentication error: ' + error.status + ' ' + error.statusText);
+    this.router.navigate(['login']);
+    return Observable.throw(error);
+  }
+
+  private forbidden(error: any) {
+    console.log('Connection error: ' + error.status + ' ' + error.statusText);
+    this.router.navigate(['login']);
+    return Observable.throw(error);
+  }
+
 
 }

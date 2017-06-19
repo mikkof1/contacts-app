@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       if (useApiStorage) {
         this.userService.signUserIn(this.account, this.password).subscribe(data => {
           this.app.user = data.json();
-          this.router.navigate(['contacts']);
+          this.router.navigate(['/contacts']);
 
         }, error => {
           if(error.status==401||error.status==403) {
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       }
       else { //local strorage use
         console.log('local use only');
-        this.router.navigate(['contacts']);
+        this.router.navigate(['/contacts']);
       }
     }
 
