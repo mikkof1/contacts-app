@@ -2,7 +2,7 @@
 
 echo ### Building Angular 4 app using Angular CLI ###
 cd ../client
-call ng build --output-path=../cordova/www --environment=api --base-href .
+call ng build --base-href . --output-path=../cordova/www --environment=prod --prod
 echo ### Angular 4 app builded and copied to cordova/www ###
 cd ../cordova
 

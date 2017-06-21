@@ -15,7 +15,7 @@ npm install
 ##### Cordova
 ```
 Cordova CLI: Installed (npm instal -g cordova)
-Web app build (ng build --base-href . --output-path=../cordova/www )
+Web app build (ng build --base-href . --output-path=../cordova/www --environment=prod --prod )
 Execute build-android.bat
 ```
 ##### Server
@@ -23,6 +23,9 @@ Execute build-android.bat
 Visual Studio 2017: Installed
 Open Solution and Run server
 --> http://localhost:49478/api
+
+For Azure database use release build
+--> http://webapicontactekoodi17.azurewebsites.net/api
 ```
 ## Run
 
@@ -34,10 +37,16 @@ ng serve
 Web API
 ng serve --environment=api
 
+Azure Api 
+ng serve --environment=prod
+
 Local Storage 
 ng serve
 ```
 The app will automatically reload if you change any of the source files.
+
+Client in azure
+http://ekoodi17contactsapp.azurewebsites.net/
 
 ### Cordova Hybrid app
 ```
@@ -54,7 +63,7 @@ cordova run android
 ng build
 --> client/dist/
 
-ng build --output-path=../cordova/www --base-href .
+ng build --base-href . --output-path=../cordova/www --environment=prod --prod
 --> cordova/www/
 ```
 
