@@ -10,7 +10,7 @@ namespace WebApi.Authentication
         public static string Audience { get; } = "ekoodiAudience";
         public static string Issuer { get; } = "ekoodiIssuer";
         public static SigningCredentials SigningCredentials { get; }=new SigningCredentials(Key,SecurityAlgorithms.RsaSha256Signature);
-        public static TimeSpan ExpiresSpan { get; }=TimeSpan.FromMinutes(1);
+        public static TimeSpan ExpiresSpan { get; }=TimeSpan.FromMinutes(15);
         public static string TokenType { get; } = "Bearer";
         
         private static RSA RsaKey()
